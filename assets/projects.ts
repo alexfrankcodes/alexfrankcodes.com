@@ -7,7 +7,7 @@ export const projects: Array<ProjectInfo> = [
     codeURL: "github.com/alexfrankcodes/name-walker",
     description:
       "An application that takes in a name, converts it into a number, and generates a random walk using that number as a seed. The end result is a unique random walk specific to each user's name.",
-    demo: "https://alexfrankcodes.github.io/rainbow-sorts/",
+    demo: "https://alexfrankcodes.github.io/name-walker/",
     technologies: ["React", "p5.js"],
   },
   {
