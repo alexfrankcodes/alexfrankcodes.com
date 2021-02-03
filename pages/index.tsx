@@ -45,7 +45,7 @@ const Home = () => (
         and{" "}
         <a
           className={styles.link}
-          href="/public/documents/AlexanderFrank_Resume.pdf"
+          href="documents/AlexanderFrank_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
