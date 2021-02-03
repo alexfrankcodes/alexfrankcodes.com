@@ -17,7 +17,7 @@ export const projects: Array<ProjectInfo> = [
     description:
       "Visualizations of sorting algorithms through rainbows. Arcs of various colors are drawn and then sorted by their hue value(or the 'H' in HSL).",
     demo: "https://alexfrankcodes.github.io/rainbow-sorts/",
-    technologies: ["HTML", "CSS", "p5.js", "Algorithms"],
+    technologies: ["HTML", "CSS", "p5.js"],
   },
   {
     title: "Twitter Opinion Analyzer",
@@ -33,7 +33,7 @@ export const projects: Array<ProjectInfo> = [
     image: "https://i.imgur.com/4h0mDsM.gif",
     codeURL: "github.com/alexfrankcodes/arcade-shooter",
     description:
-      "A 2D Arcade Shooter game, built in C++ w/ OpenFrameworks as a part of my Computer Game Design course (CS134 @ SJSU).",
+      "A 2D Arcade Shooter game, built in C++ w/ OpenFrameworks as a part of my Computer Game Design course (CS134 @ SJSU). The player controls a spaceship, and has to fire projectiles to defend against incoming enemy ships and asteroids.",
     technologies: ["C++", "OpenFrameworks"],
   },
   {

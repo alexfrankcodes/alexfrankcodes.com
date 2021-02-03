@@ -1,5 +1,19 @@
+@import "./config.scss";
+
 .container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.intro {
+  max-width: 750px;
+  margin: 0 1rem 1rem 1rem;
+  @include responsive($lg) {
+    margin: 0 0 0.5rem 0;
+    max-width: 600px;
+  }
+  @include responsive($md) {
+    margin: 0 4rem 1rem;
+  }
 }

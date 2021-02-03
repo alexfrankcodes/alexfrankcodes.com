@@ -3,6 +3,8 @@ import Image from "next/image";
 import ProjectList from "../components/ProjectList";
 import styles from "../styles/Home.module.scss";
 
+const currentYear = new Date().getFullYear();
+
 const Home = () => (
   <div className={styles.container}>
     <Head>
@@ -21,7 +23,7 @@ const Home = () => (
           src="/images/me.jpg"
           width="350px"
           height="350px"
-          layout="intrinsic"
+          layout="fixed"
         />
       </div>
 
@@ -30,9 +32,8 @@ const Home = () => (
         <span role="img" aria-label="waving hand emoji">
           👋
         </span>{" "}
-        My name is Alex. <br />
-        I'm a passionate, driven engineer seeking a full-time position in
-        software development. <br /> Please{" "}
+        My name is Alex. <br /> I'm a passionate, driven engineer seeking a
+        full-time position in software development. Please{" "}
         <a
           className={styles.link}
           href="https://github.com/alexfrankcodes"
@@ -44,7 +45,7 @@ const Home = () => (
         and{" "}
         <a
           className={styles.link}
-          href="https://docs.google.com/document/d/1FmXMJ9revkXLlAsVR5yE56rMWFv0YogGkFtEIW3lMwM/edit?usp=sharing"
+          href="/public/documents/AlexanderFrank_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -56,7 +57,16 @@ const Home = () => (
       <ProjectList />
     </main>
 
-    <footer className={styles.footer}>Alexander Frank &copy;2021</footer>
+    <footer className={styles.footer}>
+      <p>
+        Built with Next.js + TypeScript. View the source code{" "}
+        <a target="_blank" rel="noopener noreferrer">
+          here
+        </a>
+        .
+      </p>
+      <p>Copyright &copy; Alexander Frank {currentYear}</p>
+    </footer>
   </div>
 );
 

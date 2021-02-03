@@ -7,15 +7,22 @@ const ProjectList = () => {
   return (
     <>
       <h3>Recent Projects</h3>
+      <p className={styles.intro}>
+        {" "}
+        Here is small portfolio of recent projects I've worked on. More projects
+        (as well as additional information on the ones listed) can be found{" "}
+        <a
+          href="https://github.com/alexfrankcodes"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          on my Github
+        </a>
+        .
+      </p>
       <div className={styles.container}>
-        {projects.map((project) => (
-          <Project
-            title={project.title}
-            codeURL={project.codeURL}
-            description={project.description}
-            demo={project.demo}
-            image={project.image}
-          />
+        {projects.map((projectInfo) => (
+          <Project {...projectInfo} />
         ))}
       </div>
     </>
