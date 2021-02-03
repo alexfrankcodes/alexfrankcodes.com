@@ -8,4 +8,4 @@ If you have any feedback/suggestions, it would mean a lot to me if you sent a qu
 
 ## Screenshot
 
-![Screenshot of the landing section of alexfrankcodes.com](/public/images/screenshots/website.PNG)
+<img src='public/images/screenshots/website.png' width='800' alt="Home page of alexfrankcodes.com"/>
