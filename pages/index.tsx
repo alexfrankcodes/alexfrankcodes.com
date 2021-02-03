@@ -60,7 +60,11 @@ const Home = () => (
     <footer className={styles.footer}>
       <p>
         Built with Next.js + TypeScript. View the source code{" "}
-        <a target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://github.com/alexfrankcodes/alexfrankcodes.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           here
         </a>
         .
