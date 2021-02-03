@@ -6,7 +6,7 @@ import styles from "../styles/ProjectList.module.scss";
 const ProjectList = () => {
   return (
     <>
-      <h3>Recent Projects</h3>
+      <h3 className={styles.title}>Recent Projects</h3>
       <p className={styles.intro}>
         {" "}
         Here is small portfolio of recent projects I've worked on. More projects

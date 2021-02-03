@@ -18,23 +18,25 @@ const Project = ({
         <p>{description}</p>
       </div>
 
-      {demo && (
-        <div className={styles.buttons}>
-          <button className={styles.demoButton}>
-            <a href={demo} target="_blank" rel="noopener noreferrer">
-              View Demo
-            </a>
-          </button>
-        </div>
-      )}
-
       <div>
-        <h5> Made with: </h5>
-        <ul className={styles.techList}>
-          {technologies.map((technology) => (
-            <li>{technology}</li>
-          ))}
-        </ul>
+        {demo && (
+          <div className={styles.buttons}>
+            <button className={styles.demoButton}>
+              <a href={demo} target="_blank" rel="noopener noreferrer">
+                View Demo
+              </a>
+            </button>
+          </div>
+        )}
+
+        <div>
+          <h5> Made with: </h5>
+          <ul className={styles.techList}>
+            {technologies.map((technology) => (
+              <li>{technology}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
