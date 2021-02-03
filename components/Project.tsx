@@ -21,11 +21,9 @@ const Project = ({
       <div>
         {demo && (
           <div className={styles.buttons}>
-            <button className={styles.demoButton}>
-              <a href={demo} target="_blank" rel="noopener noreferrer">
-                View Demo
-              </a>
-            </button>
+            <a href={demo} target="_blank" rel="noopener noreferrer">
+              <button className={styles.demoButton}>View Demo</button>
+            </a>
           </div>
         )}
 

@@ -48,10 +48,8 @@
   border-radius: 0.2rem;
   cursor: pointer;
   width: 125px;
-  a {
-    color: white;
-    font-weight: bold;
-  }
+  color: white;
+  font-weight: bold;
   @include responsive($md) {
     width: 100%;
     margin: 0;
