@@ -11,3 +11,10 @@ If you have any feedback/suggestions, it would mean a lot to me if you sent a qu
 ## Screenshot
 
 <img src='public/images/screenshots/website.png' width='800' alt="Home page of alexfrankcodes.com"/>
+
+## Meta
+
+Alexander Frank – [@alexfrankcodes](https://twitter.com/alexfrankcodes) – alexfrankcodes@gmail.com
+
+[https://github.com/alexfrankcodes](https://github.com/alexfrankcodes)
+
