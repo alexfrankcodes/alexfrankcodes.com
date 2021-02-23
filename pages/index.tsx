@@ -64,15 +64,14 @@ const Home = () => (
 
     <footer className={styles.footer}>
       <p>
-        Built with Next.js + TypeScript.{" "}
+        Built with Next.js + TypeScript. <br />
         <a
           href="https://github.com/alexfrankcodes/alexfrankcodes.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          View the source code here
+          View this site's source code
         </a>
-        .
       </p>
       <p>Copyright &copy; Alexander Frank {currentYear}</p>
     </footer>

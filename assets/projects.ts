@@ -20,6 +20,14 @@ export const projects: Array<ProjectInfo> = [
     technologies: ["HTML", "CSS", "p5.js"],
   },
   {
+    title: "DevChat",
+    codeURL: "github.com/alexfrankcodes/devchat",
+    description:
+      "A chat application for developers. Users can enter a username and chatroom, and have real-time discussions with other users. DevChat is currently deployed across Heroku (back-end) and Netlify (front-end). ",
+    demo: "https://afc-devchat.netlify.app/",
+    technologies: ["React", "TypeScript", "Express", "Socket.io"],
+  },
+  {
     title: "Twitter Opinion Analyzer",
     image: "https://i.imgur.com/LNs4HeK.png",
     codeURL: "github.com/alexfrankcodes/twitter-opinion-analyzer",
@@ -42,12 +50,5 @@ export const projects: Array<ProjectInfo> = [
     description:
       "A small JS library for generating random emojis. By working on this project, I learned the basics of building, testing, and deploying my own JavaScript library.",
     technologies: ["JavaScript", "Chai", "Mocha"],
-  },
-  {
-    title: "React Task Manager",
-    codeURL: "github.com/alexfrankcodes/react-task-tracker",
-    description:
-      "A straightforward React app for keeping track of tasks. Built to demonstrate basic React Skills. State is handled by using React Hooks, and styling was done through Sass. Data is stored on a mock backend made with json-server.",
-    technologies: ["React", "Sass"],
   },
 ];
