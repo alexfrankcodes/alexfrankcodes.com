@@ -10,6 +10,10 @@ const Home = () => (
     <Head>
       <title>Alex Frank | Software Engineer</title>
       <link rel="icon" href="/favicon.ico" />
+      <meta
+        name="description"
+        content="The personal website of Software Engineer Alexander Frank."
+      />
     </Head>
 
     <main className={styles.main}>
@@ -24,6 +28,7 @@ const Home = () => (
           width="350px"
           height="350px"
           layout="fixed"
+          alt="Me on a hike in the mountains of Almaden Quicksilver"
         />
       </div>
 
@@ -59,15 +64,14 @@ const Home = () => (
 
     <footer className={styles.footer}>
       <p>
-        Built with Next.js + TypeScript. View the source code{" "}
+        Built with Next.js + TypeScript. <br />
         <a
           href="https://github.com/alexfrankcodes/alexfrankcodes.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          here
+          View this site's source code
         </a>
-        .
       </p>
       <p>Copyright &copy; Alexander Frank {currentYear}</p>
     </footer>
