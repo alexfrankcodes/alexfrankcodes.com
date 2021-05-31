@@ -37,8 +37,15 @@ const Home = () => (
         <span role="img" aria-label="waving hand emoji">
           👋
         </span>{" "}
-        My name is Alex. <br /> I'm a passionate, driven engineer seeking a
-        full-time position in software development. Please{" "}
+        My name is Alex. <br /> I'm currently working as a Software Engineer for
+        Southwest Airlines!{" "}
+        <span
+          role="img"
+          aria-label="airplane emoji followed by sparkling heart emoji"
+        >
+          ✈💖
+        </span>{" "}
+        <br /> Please{" "}
         <a
           className={styles.link}
           href="https://github.com/alexfrankcodes"

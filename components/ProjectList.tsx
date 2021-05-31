@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { projects } from "../assets/projects";
 import Project from "./Project";
 import styles from "../styles/ProjectList.module.scss";
@@ -6,11 +5,12 @@ import styles from "../styles/ProjectList.module.scss";
 const ProjectList = () => {
   return (
     <>
-      <h3 className={styles.title}>Recent Projects</h3>
+      <h3 className={styles.title}>Personal Projects</h3>
       <p className={styles.intro}>
         {" "}
-        Here is small portfolio of recent projects I've worked on. More projects
-        (as well as additional information on the ones listed) can be found{" "}
+        Here is small selection of personal projects I've worked on. More
+        projects (as well as additional information on the ones listed) can be
+        found{" "}
         <a
           href="https://github.com/alexfrankcodes"
           target="_blank"
