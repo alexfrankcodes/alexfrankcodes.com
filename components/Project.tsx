@@ -12,7 +12,11 @@ const Project = ({
     <div className={styles.container}>
       <div>
         <h4 className={styles.projectTitle}>{title}</h4>
-        <a href={codeURL} target="_blank" rel="noopener noreferrer">
+        <a
+          href={`https://${codeURL}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {codeURL}
         </a>
         <p>{description}</p>
