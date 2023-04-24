@@ -17,7 +17,7 @@ $sm: 28em; // mobile and low-res tablets
 $xs: 20em; // mobile only
 
 @mixin responsive($query) {
-  @media (max-width: + $query) {
+  @media (max-width: $query) {
     @content;
   }
 }

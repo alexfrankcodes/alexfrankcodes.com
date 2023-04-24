@@ -24,11 +24,11 @@ const Home = () => (
       <div className={styles.imgContainer}>
         <Image
           className={styles.img}
-          src="/images/me.jpg"
+          src="/images/me.png"
           width="350px"
           height="350px"
           layout="fixed"
-          alt="Me on a hike in the mountains of Almaden Quicksilver"
+          alt="A headshot of Alex"
         />
       </div>
 
