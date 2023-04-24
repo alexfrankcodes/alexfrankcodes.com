@@ -1,5 +1,13 @@
-$primary-color: #ee7575;
-$font-color-dark: #212529;
+$primary-color-light: #ee7575;
+$font-color-light: #212529;
+$border-color-light: #f3eeee20;
+$box-shadow-light: #0000000a;
+
+/* Dark mode colors*/
+$primary-color-dark: #3aafe1;
+$font-color-dark: #d9d9d9;
+$border-color-dark: #fffefe20;
+$box-shadow-dark: #efefef0a;
 
 /* Responsive breakpoints */
 $xl: 87.5em; // 4k and hi-res desktop

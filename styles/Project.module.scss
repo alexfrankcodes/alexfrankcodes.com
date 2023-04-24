@@ -1,9 +1,9 @@
 @import "./config.scss";
 
 .container {
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid $border-color-dark;
   border-radius: 0.5rem;
-  box-shadow: 0.2rem 0.2rem rgba(0, 0, 0, 0.04);
+  box-shadow: 0.2rem 0.2rem $box-shadow-dark;
   padding: 1rem;
   margin: 0.5rem;
   max-width: 450px;
@@ -39,7 +39,7 @@
   margin: 0;
   li {
     padding: 0.5rem 1rem;
-    border: 1px solid rgba(0, 0, 0, 0.125);
+    border: 1px solid $border-color-dark;
   }
   max-width: 400px;
 }
