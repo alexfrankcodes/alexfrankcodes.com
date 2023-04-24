@@ -8,10 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "10.0.5",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "sass": "1.32.5"
+    "next": "12",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "sass": "^1.32.5"
   },
   "devDependencies": {
     "@types/node": "14.14.22",
