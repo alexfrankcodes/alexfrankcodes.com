@@ -70,17 +70,14 @@ const Home = () => (
     </main>
 
     <footer className={styles.footer}>
-      <p>
-        Built with Next.js + TypeScript. <br />
-        <a
-          href="https://github.com/alexfrankcodes/alexfrankcodes.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          View this site's source code
-        </a>
-      </p>
-      <p>Copyright &copy; Alexander Frank {currentYear}</p>
+      <p>&copy; Alexander Frank {currentYear}</p>
+      <a
+        href="https://github.com/alexfrankcodes/alexfrankcodes.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View this site's source code
+      </a>
     </footer>
   </div>
 );
