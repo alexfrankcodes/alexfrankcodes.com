@@ -33,7 +33,6 @@ export const projects: Array<ProjectInfo> = [
     codeURL: "github.com/alexfrankcodes/twitter-opinion-analyzer",
     description:
       "A python web app that lets a user enter a topic and get the current polarity on that topic through sentiment analysis on recent tweets.",
-    demo: "https://twitter-opinion-analyzer.herokuapp.com/",
     technologies: ["Python", "Flask", "Heroku"],
   },
   {
