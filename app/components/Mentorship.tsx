@@ -36,7 +36,9 @@ const Mentorship = () => {
   return (
     <section id="mentorship" className="bg-gray-900 ">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-8 text-white">Mentorship</h2>
+        <h2 className="text-4xl font-bold mb-8 text-white text-center lg:text-start">
+          Mentorship
+        </h2>
         <p className="text-xl text-gray-400 mb-12 max-w-3xl">
           I'm passionate about helping the next generation of developers grow
           and succeed. Here are some ways I offer{" "}

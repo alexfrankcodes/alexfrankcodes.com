@@ -2,17 +2,20 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const Navbar = () => {
   const pathname = usePathname();
 
   const navItems = [
-    { label: "Home", href: "/" },
+    { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
     { label: "Projects", href: "#projects" },
     { label: "Mentorship", href: "#mentorship" },
     { label: "Contact", href: "#contact" },
   ];
+
+  const [activeSection, setActiveSection] = useState<string | null>(null);
 
   return (
     <nav className="bg-gray-900  bg-opacity-90 text-white w-full fixed top-0 left-0 z-10">
