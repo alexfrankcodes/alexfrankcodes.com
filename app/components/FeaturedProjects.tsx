@@ -118,7 +118,7 @@ const FeaturedProjects = () => {
   ];
 
   return (
-    <section className="bg-gray-900 py-16">
+    <section id="projects" className="bg-gray-900 py-16">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold mb-12 text-white">
           Featured Projects

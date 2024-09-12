@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { FaDownload, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaDownload, FaGithub, FaLinkedin } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 const Landing = () => {
   return (
@@ -8,32 +9,33 @@ const Landing = () => {
       <p className="text-3xl text-gray-400 mb-6">Full-Stack Developer</p>
       <div className="flex justify-center space-x-4 mb-8">
         <Link
-          href="https://github.com"
+          href="https://github.com/alexfrankcodes"
           className="text-gray-400 hover:text-pink-500"
         >
           <FaGithub size={24} />
         </Link>
         <Link
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/alexfrankcodes/"
           className="text-gray-400 hover:text-pink-500"
         >
           <FaLinkedin size={24} />
         </Link>
         <Link
-          href="https://twitter.com"
+          href="mailto:alexfrankcodes@gmail.com"
           className="text-gray-400 hover:text-pink-500"
         >
-          <FaTwitter size={24} />
+          <MdEmail size={24} />
         </Link>
       </div>
 
-      <Link
-        href="/work"
+      <a
+        href="../assets/AlexFrankResume.pdf"
         className="bg-pink-600 hover:bg-pink-700 text-white py-2 px-6 rounded-full inline-flex items-center"
+        download
       >
         Download My Resume
         <FaDownload size={18} className="m-2" />
-      </Link>
+      </a>
     </section>
   );
 };

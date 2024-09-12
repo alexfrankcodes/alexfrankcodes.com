@@ -1,6 +1,9 @@
 import About from "./components/About";
+import Contact from "./components/Contact";
 import FeaturedProjects from "./components/FeaturedProjects";
+import Footer from "./components/Footer";
 import Landing from "./components/Landing";
+import Mentorship from "./components/Mentorship";
 import Navbar from "./components/Navbar";
 
 export default function Home() {
@@ -10,6 +13,9 @@ export default function Home() {
       <Landing />
       <About />
       <FeaturedProjects />
+      <Mentorship />
+      <Contact />
+      <Footer />
     </main>
   );
 }
