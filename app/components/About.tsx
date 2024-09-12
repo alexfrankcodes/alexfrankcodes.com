@@ -11,7 +11,7 @@ import pro from "../img/pro.png";
 
 const Avatar = () => (
   <div className="hidden lg:block">
-    <div className="w-64 h-64 rounded-full border-4 border-purple-400 overflow-hidden">
+    <div className="w-64 h-64 rounded-full border-4 border-gray-700 overflow-hidden">
       <Image src={pro} alt="Alex Frank" className="cover" />
     </div>
   </div>
@@ -19,7 +19,7 @@ const Avatar = () => (
 
 const Skills = () => (
   <div className="mt-8 lg:mt-0 ">
-    <h2 className="text-3xl font-bold mt-6 mb-8">Skills</h2>
+    <h2 className="text-2xl font-bold mt-6 mb-8">Skills</h2>
     <div className="lg:ml-24 grid lg:grid-cols-3 grid-cols-2 gap-x-8 gap-y-4 ">
       {[
         { icon: FaReact, name: "React", color: "text-blue-400" },
@@ -47,7 +47,7 @@ const Skills = () => (
 
 const About = () => {
   return (
-    <section className="bg-gray-900 text-white py-8 w-2/3 2xl:w-1/2">
+    <section className="bg-gray-900 text-white py-82">
       <div className="container mx-auto px-4">
         <div className="lg:flex lg:space-x-12 items-center">
           <div className="lg:w-2/3">
