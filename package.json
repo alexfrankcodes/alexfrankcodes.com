@@ -1,6 +1,6 @@
 {
-  "name": "new-portfolio-site",
-  "version": "0.1.0",
+  "name": "alexfrankcodes.com",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,8 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@radix-ui/react-icons": "^1.3.0",
-    "@radix-ui/react-navigation-menu": "^1.2.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.5.4",

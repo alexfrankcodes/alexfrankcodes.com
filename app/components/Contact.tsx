@@ -13,7 +13,7 @@ const Contact = () => {
         </p>
         <div className="flex justify-center space-x-8">
           <Link
-            href="https://github.com/yourusername"
+            href="https://github.com/alexfrankcodes"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-white transition-colors"
@@ -21,7 +21,7 @@ const Contact = () => {
             <FaGithub size={32} />
           </Link>
           <Link
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/alexfrankcodes/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-400 hover:text-white transition-colors"
@@ -29,7 +29,7 @@ const Contact = () => {
             <FaLinkedin size={32} />
           </Link>
           <Link
-            href="mailto:your.email@example.com"
+            href="mailto:alexfrankcodes@gmail.com"
             className="text-gray-400 hover:text-white transition-colors"
           >
             <MdEmail size={32} />
