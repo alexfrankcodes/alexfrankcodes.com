@@ -9,7 +9,6 @@ import ProgressBar from "../components/ProgressBar";
 
 export default function Home() {
   return (
-
     <main className="flex flex-col items-center mx-auto max-w-screen-lg">
       <Navbar />
       <Landing />
@@ -20,6 +19,5 @@ export default function Home() {
       <Footer />
       <ProgressBar />
     </main>
-
   );
 }
