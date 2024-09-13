@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { FaDownload, FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -29,7 +30,7 @@ const Landing = () => {
       </div>
 
       <a
-        href="../assets/AlexFrankResume.pdf"
+        href="./AlexanderFrank_Resume.pdf"
         className="bg-pink-600 hover:bg-pink-700 text-white py-2 px-6 rounded-full inline-flex items-center"
         download
       >
