@@ -34,7 +34,7 @@ const Skills = () => (
         { icon: SiGraphql, name: "GraphQL", color: "text-pink-500" },
       ].map((skill) => (
         <div key={skill.name} className="flex items-center space-x-3">
-          <div className={`${skill.bg || ""}`}>
+          <div className={`${skill.color || ""}`}>
             <skill.icon className={`${skill.color}`} size={28} />
           </div>
           <span className="text-lg">{skill.name}</span>
@@ -55,19 +55,19 @@ const About = () => {
               About Me
             </h2>
             <p className="mb-4 mr-4">
-              Hi there! My name is Alex. I'm currently working as a Software
+              Hi there! My name is Alex. I{"'"}m currently working as a Software
               Engineer for Southwest Airlines! ✈💖 I work remotely from San
               Jose, CA.
             </p>
             <p className="mb-4 mr-4">
-              I'm passionate about building accessible, performant web apps with
-              a focus on user experience. I'm experienced with modern web
-              technologies including React, Next.js, and GraphQL.
+              I{"'"}m passionate about building accessible, performant web apps
+              with a focus on user experience. I{"'"}m experienced with modern
+              web technologies including React, Next.js, and GraphQL.
             </p>
             <p className="mb-4 mr-4">
-              When I'm not hacking away at code, you can find me exploring new
-              hiking trails, spending time with my friends and family, reading,
-              or playing video games.
+              When I{"'"}m not hacking away at code, you can find me exploring
+              new hiking trails, spending time with my friends and family,
+              reading, or playing video games.
             </p>
           </div>
           <div className="lg:w-1/3 flex flex-col items-center ml-4">
