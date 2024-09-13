@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { FaNodeJs, FaReact } from "react-icons/fa";
 import {
@@ -10,11 +12,11 @@ import {
 import pro from "../public/img/pro.png";
 
 const Avatar = () => (
-  <div className="hidden lg:block">
+  <motion.div className="hidden lg:block" whileHover={{ scale: 1.1 }}>
     <div className="w-64 h-64 rounded-full border-4 border-gray-700 overflow-hidden">
       <Image src={pro} alt="Alex Frank" className="cover" />
     </div>
-  </div>
+  </motion.div>
 );
 
 const Skills = () => (
