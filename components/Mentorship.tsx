@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaFile, FaGraduationCap, FaUserFriends } from "react-icons/fa";
 
@@ -10,13 +12,16 @@ const MentorshipCard = ({
   title: string;
   description: string;
 }) => (
-  <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center text-center">
+  <motion.div
+    className="bg-gray-800 rounded-lg p-6 flex flex-col items-center text-center"
+    whileHover={{ scale: 1.05, y: 0.5, x: -1 }}
+  >
     <div className="text-pink-500 mb-4">
       <Icon size={48} />
     </div>
     <h3 className="text-xl font-bold mb-2 text-white">{title}</h3>
     <p className="text-gray-400">{description}</p>
-  </div>
+  </motion.div>
 );
 
 const Mentorship = () => {
@@ -58,14 +63,14 @@ const Mentorship = () => {
             <MentorshipCard key={index} {...area} />
           ))}
         </div>
-        <div className="text-center">
+        <motion.div className="text-center" whileHover={{ scale: 1.1 }}>
           <Link
             href="mailto:alexfrankcodes@gmail.com? subject=Mentorship Request"
             className="inline-block bg-pink-600 hover:bg-pink-700 text-white  py-3 px-8 rounded-full text-lg transition-colors duration-300"
           >
             Hit Me Up!
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
