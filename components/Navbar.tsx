@@ -54,6 +54,7 @@ const Navbar = () => {
         <button
           className="md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Open Menu"
         >
           <svg
             className="w-6 h-6"
@@ -78,9 +79,8 @@ const Navbar = () => {
               <motion.div whileHover={{ y: 5 }}>
                 <Link
                   href={item.href}
-                  className={`hover:text-pink-500 transition-colors ${
-                    isActive(item.href) ? "text-pink-500" : ""
-                  }`}
+                  className={`hover:text-pink-500 transition-colors ${isActive(item.href) ? "text-pink-500" : ""
+                    }`}
                   onClick={() => handleClick(item.href)}
                 >
                   {item.label}
@@ -99,9 +99,8 @@ const Navbar = () => {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`block px-3 py-2 rounded-md text-base font-medium hover:text-pink-500 transition-colors ${
-                    isActive(item.href) ? "text-pink-500" : ""
-                  }`}
+                  className={`block px-3 py-2 rounded-md text-base font-medium hover:text-pink-500 transition-colors ${isActive(item.href) ? "text-pink-500" : ""
+                    }`}
                   onClick={() => handleClick(item.href)}
                 >
                   {item.label}

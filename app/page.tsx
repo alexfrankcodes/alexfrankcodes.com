@@ -1,11 +1,15 @@
-import About from "../components/About";
-import Contact from "../components/Contact";
-import FeaturedProjects from "../components/FeaturedProjects";
-import Footer from "../components/Footer";
-import Landing from "../components/Landing";
-import Mentorship from "../components/Mentorship";
-import Navbar from "../components/Navbar";
-import ProgressBar from "../components/ProgressBar";
+import dynamic from 'next/dynamic';
+
+const About = dynamic(() => import("../components/About"), {
+  loading: () => <p>Loading...</p>
+});
+const Contact = dynamic(() => import("../components/Contact"));
+const FeaturedProjects = dynamic(() => import("../components/FeaturedProjects"));
+const Footer = dynamic(() => import("../components/Footer"));
+const Landing = dynamic(() => import("../components/Landing"));
+const Mentorship = dynamic(() => import("../components/Mentorship"));
+const Navbar = dynamic(() => import("../components/Navbar"), { ssr: true });
+const ProgressBar = dynamic(() => import("../components/ProgressBar"));
 
 export default function Home() {
   return (
