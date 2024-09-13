@@ -7,7 +7,7 @@ import {
   SiTypescript,
 } from "react-icons/si";
 
-import pro from "../img/pro.png";
+import pro from "../public/img/pro.png";
 
 const Avatar = () => (
   <div className="hidden lg:block">
