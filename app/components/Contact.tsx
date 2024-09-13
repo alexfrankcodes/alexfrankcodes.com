@@ -8,8 +8,8 @@ const Contact = () => {
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-4xl font-bold mb-8 text-white">Get in Touch</h2>
         <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-          I'm always open to new opportunities, collaborations, and mentorship
-          requests. Feel free to reach out!
+          I{"'"}m always open to new opportunities, collaborations, and
+          mentorship requests. Feel free to reach out!
         </p>
         <div className="flex justify-center space-x-8">
           <Link

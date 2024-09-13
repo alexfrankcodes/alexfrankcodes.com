@@ -1,7 +1,15 @@
 import Link from "next/link";
 import { FaFile, FaGraduationCap, FaUserFriends } from "react-icons/fa";
 
-const MentorshipCard = ({ icon: Icon, title, description }) => (
+const MentorshipCard = ({
+  icon: Icon,
+  title,
+  description,
+}: {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+}) => (
   <div className="bg-gray-800 rounded-lg p-6 flex flex-col items-center text-center">
     <div className="text-pink-500 mb-4">
       <Icon size={48} />
@@ -40,8 +48,8 @@ const Mentorship = () => {
           Mentorship
         </h2>
         <p className="text-xl text-gray-400 mb-12 max-w-3xl">
-          I'm passionate about helping the next generation of developers grow
-          and succeed. Here are some ways I offer{" "}
+          I{"'"}m passionate about helping the next generation of developers
+          grow and succeed. Here are some ways I offer{" "}
           <span className="font-bold italic text-green-500">(100% free!)</span>{" "}
           mentorship to junior engineers and students:
         </p>

@@ -3,7 +3,7 @@ import { FaGithub } from "react-icons/fa";
 
 interface ProjectCardProps {
   title: string;
-  description: string;
+  description: string | JSX.Element;
   technologies: string[];
   link?: string;
   github?: string;
@@ -76,7 +76,7 @@ const FeaturedProjects = () => {
       title: "Name Walker",
       description: (
         <>
-          "An application that takes in a name, converts it into a number, and
+          An application that takes in a name, converts it into a number, and
           generates a random walk using that number as a seed. The end result is
           a unique{" "}
           <a
@@ -86,7 +86,7 @@ const FeaturedProjects = () => {
           >
             random walk
           </a>{" "}
-          specific to each user's name.",
+          specific to each user{"'"}s name.,
         </>
       ),
       technologies: ["React", "p5.js"],
