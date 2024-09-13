@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import Landing from "../components/Landing";
 import Mentorship from "../components/Mentorship";
 import Navbar from "../components/Navbar";
+import ProgressBar from "../components/ProgressBar";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Mentorship />
       <Contact />
       <Footer />
+      <ProgressBar />
     </main>
   );
 }
