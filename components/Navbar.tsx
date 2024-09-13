@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -54,8 +55,19 @@ const Navbar = () => {
           className="md:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
         </button>
 
@@ -63,14 +75,17 @@ const Navbar = () => {
         <ul className="hidden md:flex space-x-6">
           {navItems.map((item) => (
             <li key={item.href}>
-              <Link
-                href={item.href}
-                className={`hover:text-pink-500 transition-colors ${isActive(item.href) ? "text-pink-500" : ""
+              <motion.div whileHover={{ y: 5 }}>
+                <Link
+                  href={item.href}
+                  className={`hover:text-pink-500 transition-colors ${
+                    isActive(item.href) ? "text-pink-500" : ""
                   }`}
-                onClick={() => handleClick(item.href)}
-              >
-                {item.label}
-              </Link>
+                  onClick={() => handleClick(item.href)}
+                >
+                  {item.label}
+                </Link>
+              </motion.div>
             </li>
           ))}
         </ul>
@@ -84,8 +99,9 @@ const Navbar = () => {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`block px-3 py-2 rounded-md text-base font-medium hover:text-pink-500 transition-colors ${isActive(item.href) ? "text-pink-500" : ""
-                    }`}
+                  className={`block px-3 py-2 rounded-md text-base font-medium hover:text-pink-500 transition-colors ${
+                    isActive(item.href) ? "text-pink-500" : ""
+                  }`}
                   onClick={() => handleClick(item.href)}
                 >
                   {item.label}
