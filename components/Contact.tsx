@@ -1,5 +1,5 @@
 "use client";
-import SocialLinks from "./SocialLinks";
+import SocialLinks from "./common/SocialLinks";
 
 const Contact = () => {
   return (
