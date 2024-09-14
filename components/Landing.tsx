@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { FaDownload } from "react-icons/fa";
-import SocialLinks from "./SocialLinks";
+import SocialLinks from "./common/SocialLinks";
 const Landing = () => {
   return (
     <section id="home" className=" text-white py-16 text-center mt-12">
@@ -9,7 +9,6 @@ const Landing = () => {
       <p className="text-3xl text-gray-400 mb-6">Full-Stack Developer</p>
 
       <SocialLinks size={24} />
-
 
       <motion.a
         href="./AlexanderFrank_Resume.pdf"
