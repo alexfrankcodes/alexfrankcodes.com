@@ -27,12 +27,15 @@ const Mentorship = () => {
   ];
 
   return (
-    <section id="mentorship" className="bg-gray-900 ">
+    <section
+      id="mentorship"
+      className="bg-background dark:bg-background-dark my-8"
+    >
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-8 text-white text-center lg:text-start">
+        <h2 className="text-4xl font-bold mb-8 text-foreground dark:text-foreground-dark text-center lg:text-start">
           Mentorship
         </h2>
-        <p className="text-xl text-gray-400 mb-12 max-w-3xl">
+        <p className="text-xl text-muted-foreground dark:text-muted-foreground-dark mb-12 max-w-3xl">
           I{"'"}m passionate about helping the next generation of developers
           grow and succeed. Here are some ways I offer{" "}
           <span className="font-bold italic text-green-500">(100% free!)</span>{" "}
@@ -46,7 +49,7 @@ const Mentorship = () => {
         <motion.div className="text-center" whileHover={{ scale: 1.1 }}>
           <Link
             href="mailto:alexfrankcodes@gmail.com? subject=Mentorship Request"
-            className="inline-block bg-pink-600 hover:bg-pink-700 text-white  py-3 px-8 rounded-full text-lg transition-colors duration-300"
+            className="inline-block bg-accent dark:bg-accent-dark hover:bg-accent-secondary dark:hover:bg-accent-secondary-dark text-white  py-3 px-8 rounded-full text-lg transition-colors duration-300"
           >
             Hit Me Up!
           </Link>

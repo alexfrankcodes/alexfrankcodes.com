@@ -10,12 +10,14 @@ const FeaturedProjects = dynamic(
 const Footer = dynamic(() => import("../components/common/Footer"));
 const Landing = dynamic(() => import("../components/Landing"));
 const Mentorship = dynamic(() => import("../components/mentorship/Mentorship"));
-const Navbar = dynamic(() => import("../components/common/Navbar"), { ssr: true });
+const Navbar = dynamic(() => import("../components/common/Navbar"), {
+  ssr: true,
+});
 const ProgressBar = dynamic(() => import("../components/common/ProgressBar"));
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center mx-auto max-w-screen-lg">
+    <main className="flex flex-col items-center mx-auto max-w-screen-lg pt-16">
       <Navbar />
       <Landing />
       <About />
