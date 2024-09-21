@@ -15,7 +15,7 @@ const ProgressBar = dynamic(() => import("../components/common/ProgressBar"));
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center mx-auto max-w-screen-lg">
+    <main className="flex flex-col items-center mx-auto max-w-screen-lg pt-16">
       <Navbar />
       <Landing />
       <About />
