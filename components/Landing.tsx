@@ -4,7 +4,7 @@ import { FaDownload } from "react-icons/fa";
 import SocialLinks from "./common/SocialLinks";
 const Landing = () => {
   return (
-    <section id="home" className=" text-white py-16 text-center mt-12">
+    <section id="home" className="text-white py-16 text-center">
       <h1 className="text-7xl font-bold mb-4">Alex Frank</h1>
       <p className="text-3xl text-gray-400 mb-6">Full-Stack Developer</p>
 
