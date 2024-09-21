@@ -3,11 +3,14 @@ import Skills from "./Skills";
 
 const About = () => {
   return (
-    <section id="about" className="bg-gray-900 text-gray-400 py-82">
+    <section
+      id="about"
+      className="bg-background dark:bg-background-dark text-foreground dark:text-muted-foreground-dark py-82"
+    >
       <div className="container mx-auto px-4">
         <div className="lg:flex lg:space-x-12 items-center">
           <div className="lg:w-2/3">
-            <h2 className="text-4xl font-bold mb-8 text-white text-center lg:text-start">
+            <h2 className="text-4xl font-bold mb-8 text-foreground dark:text-foreground-dark text-center lg:text-start">
               About Me
             </h2>
             <p className="mb-4 mr-4">

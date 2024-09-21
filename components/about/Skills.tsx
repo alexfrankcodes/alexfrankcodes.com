@@ -12,7 +12,7 @@ const Skills = () => {
     {
       icon: SiNextdotjs,
       name: "Next.js",
-      color: "text-white",
+      color: "text-black dark:text-white",
     },
     { icon: SiTailwindcss, name: "Tailwind", color: "text-teal-400" },
     { icon: SiTypescript, name: "TypeScript", color: "text-blue-500" },
@@ -22,7 +22,9 @@ const Skills = () => {
 
   return (
     <div className="mt-8 lg:mt-0 ">
-      <h2 className="text-2xl font-bold mt-6 mb-8 text-white">Skills</h2>
+      <h2 className="text-2xl font-bold mt-6 mb-8 text-foreground dark:text-foreground-dark">
+        Skills
+      </h2>
       <div className="lg:ml-24 grid lg:grid-cols-3 grid-cols-2 gap-x-8 gap-y-4 ">
         {skillsList.map((skill) => (
           <div key={skill.name} className="flex items-center space-x-3">

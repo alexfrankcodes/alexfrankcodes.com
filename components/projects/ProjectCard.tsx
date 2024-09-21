@@ -18,17 +18,19 @@ const ProjectCard = ({
   github,
 }: ProjectCardProps) => (
   <motion.div
-    className="bg-gray-800 rounded-lg p-6 flex flex-col justify-between"
+    className="bg-muted dark:bg-muted-dark rounded-lg p-6 flex flex-col justify-between text-foreground dark:text-muted-foreground-dark"
     whileHover={{ scale: 1.05, y: 1, x: -1 }}
   >
     <div className="flex flex-col justify-between">
-      <h3 className="text-2xl font-bold mb-2 text-white">{title}</h3>
-      <p className="text-gray-400 mb-4">{description}</p>
+      <h3 className="text-2xl font-bold mb-2 ">{title}</h3>
+      <p className="text-muted-foreground dark:text-muted-foreground-dark mb-4">
+        {description}
+      </p>
       <div className="flex flex-wrap gap-2 mb-4">
         {technologies.map((tech, index) => (
           <span
             key={index}
-            className="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-sm"
+            className="dark:bg-primary bg-gray-400 text-foreground dark:text-foreground-dark px-3 py-1 rounded-full text-sm"
           >
             {tech}
           </span>
@@ -40,7 +42,7 @@ const ProjectCard = ({
         <Link
           href={link}
           target="_blank"
-          className="text-pink-400 hover:text-pink-500 transition-colors inline-flex items-center"
+          className="text-accent dark:text-accent-dark inline-flex items-center"
         >
           View Project
           <svg
@@ -59,15 +61,15 @@ const ProjectCard = ({
           </svg>
         </Link>
       ) : (
-        <p className="text-gray-200 cursor-pointer">Demo N/A</p>
+        <p className=" cursor-pointer">Demo N/A</p>
       )}
       {github && (
         <Link
           href={github}
           target="_blank"
-          className="text-gray-200 hover:text-gray-300 transition-colors flex items-center"
+          className=" text-gray-500 hover:text-black dark:text-muted-foreground-dark dark:hover:text-gray-400 transition-colors flex items-center"
         >
-          View Source <FaGithub className="text-white ml-2" />
+          View Source <FaGithub className=" ml-2" />
         </Link>
       )}
     </div>
