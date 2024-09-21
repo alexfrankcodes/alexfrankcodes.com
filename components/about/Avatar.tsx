@@ -7,7 +7,7 @@ const hoverEffect = { scale: 1.1 };
 
 const Avatar = () => (
   <motion.div className="hidden lg:block" whileHover={hoverEffect}>
-    <div className="w-64 h-64 rounded-full border-4 border-gray-700 overflow-hidden">
+    <div className="w-64 h-64 rounded-full border-2 border-ring dark:border-ring-dark overflow-hidden">
       <Image src={pro} alt="Alex Frank" className="cover" />
     </div>
   </motion.div>

@@ -13,7 +13,7 @@ const FeaturedProjects = () => {
           generates a random walk using that number as a seed. The end result is
           a unique{" "}
           <a
-            className="font-bold text-pink-300 hover:text-pink-400"
+            className="font-bold text-accent dark:text-pink-500 hover:text-accent-secondary dark:hover:text-pink-600"
             href="https://en.wikipedia.org/wiki/Random_walk"
             target="_blank"
           >
@@ -51,9 +51,12 @@ const FeaturedProjects = () => {
   ];
 
   return (
-    <section id="projects" className="bg-gray-900 py-16">
+    <section
+      id="projects"
+      className="bg-background dark:bg-background-dark py-16"
+    >
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-12 text-white text-center lg:text-start">
+        <h2 className="text-4xl font-bold mb-12 text-foreground dark:text-foreground-dark text-center lg:text-start">
           Featured Projects
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

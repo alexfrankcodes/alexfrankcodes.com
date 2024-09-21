@@ -9,7 +9,7 @@ const SocialLinks = ({ size }: { size: number }) => {
       <motion.div whileHover={{ scale: 1.1, y: -5 }}>
         <Link
           href="https://github.com/alexfrankcodes"
-          className="text-gray-400 hover:text-white"
+          className="text-muted-foreground dark:text-muted-foreground-dark hover:text-accent-secondary dark:hover:text-accent-secondary-dark"
           target="_blank"
           aria-label="Go to Alex's GitHub"
         >
@@ -19,7 +19,7 @@ const SocialLinks = ({ size }: { size: number }) => {
       <motion.div whileHover={{ scale: 1.1, y: -5 }}>
         <Link
           href="https://www.linkedin.com/in/alexfrankcodes/"
-          className="text-gray-400 hover:text-white"
+          className="text-muted-foreground dark:text-muted-foreground-dark hover:text-accent-secondary dark:hover:text-accent-secondary-dark"
           target="_blank"
           aria-label="Go to Alex's LinkedIn"
         >
@@ -29,14 +29,14 @@ const SocialLinks = ({ size }: { size: number }) => {
       <motion.div whileHover={{ scale: 1.1, y: -5 }}>
         <Link
           href="mailto:alexfrankcodes@gmail.com"
-          className="text-gray-400 hover:text-white"
+          className="text-muted-foreground dark:text-muted-foreground-dark hover:text-accent-secondary dark:hover:text-accent-secondary-dark"
           aria-label="Send Alex an email"
         >
           <MdEmail size={size} />
         </Link>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
 export default SocialLinks;
