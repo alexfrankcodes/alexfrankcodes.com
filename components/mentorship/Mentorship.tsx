@@ -16,7 +16,7 @@ const Mentorship = () => {
       icon: FaFile,
       title: "Resume Reviews",
       description:
-        "In-depth feedback on your projects to help you write cleaner, more efficient code.",
+        "Detailed feedback to optimize your resume and improve your chances with potential employers.",
     },
     {
       icon: FaGraduationCap,
@@ -48,7 +48,7 @@ const Mentorship = () => {
         </div>
         <motion.div className="text-center" whileHover={{ scale: 1.1 }}>
           <Link
-            href="mailto:alexfrankcodes@gmail.com? subject=Mentorship Request"
+            href="mailto:alexfrankcodes@gmail.com?subject=Mentorship Request"
             className="inline-block bg-accent dark:bg-accent-dark hover:bg-accent-secondary dark:hover:bg-accent-secondary-dark text-white  py-3 px-8 rounded-full text-lg transition-colors duration-300"
           >
             Hit Me Up!
