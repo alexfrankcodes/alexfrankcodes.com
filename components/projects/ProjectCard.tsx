@@ -42,6 +42,7 @@ const ProjectCard = ({
         <Link
           href={link}
           target="_blank"
+          rel="noopener noreferrer"
           className="text-accent dark:text-accent-dark inline-flex items-center"
         >
           View Project
