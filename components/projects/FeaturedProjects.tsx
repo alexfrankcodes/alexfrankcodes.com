@@ -19,7 +19,7 @@ const FeaturedProjects = () => {
           >
             random walk
           </a>{" "}
-          specific to each user{"'"}s name.,
+          specific to each user{"'"}s name.
         </>
       ),
       technologies: ["React", "p5.js"],

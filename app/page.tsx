@@ -1,19 +1,32 @@
 import dynamic from "next/dynamic";
 
+import Navbar from "../components/common/Navbar";
+import ProgressBar from "../components/common/ProgressBar";
+
 const About = dynamic(() => import("../components/about/About"), {
   loading: () => <p>Loading...</p>,
 });
-const Contact = dynamic(() => import("../components/Contact"));
-const FeaturedProjects = dynamic(
-  () => import("../components/projects/FeaturedProjects")
-);
-const Footer = dynamic(() => import("../components/common/Footer"));
-const Landing = dynamic(() => import("../components/Landing"));
-const Mentorship = dynamic(() => import("../components/mentorship/Mentorship"));
-const Navbar = dynamic(() => import("../components/common/Navbar"), {
-  ssr: true,
+const Contact = dynamic(() => import("../components/Contact"), {
+  loading: () => <p>Loading...</p>,
 });
-const ProgressBar = dynamic(() => import("../components/common/ProgressBar"));
+const FeaturedProjects = dynamic(
+  () => import("../components/projects/FeaturedProjects"),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
+const Footer = dynamic(() => import("../components/common/Footer"), {
+  loading: () => <p>Loading...</p>,
+});
+const Landing = dynamic(() => import("../components/Landing"), {
+  loading: () => <p>Loading...</p>,
+});
+const Mentorship = dynamic(
+  () => import("../components/mentorship/Mentorship"),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 export default function Home() {
   return (

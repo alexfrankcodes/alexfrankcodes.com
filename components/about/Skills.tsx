@@ -29,7 +29,7 @@ const Skills = () => {
         {skillsList.map((skill) => (
           <div key={skill.name} className="flex items-center space-x-3">
             <div className={`${skill.color || ""}`}>
-              <skill.icon className={`${skill.color}`} size={28} />
+              <skill.icon size={28} />
             </div>
             <span className="text-lg">{skill.name}</span>
           </div>

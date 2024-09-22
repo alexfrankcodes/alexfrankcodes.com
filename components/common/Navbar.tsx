@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
+import debounce from "lodash.debounce";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,16 +19,16 @@ const Navbar = () => {
     { label: "Contact", href: "#contact" },
   ];
 
-  const handleScroll = useCallback(() => {
+  const debouncedHandleScroll = debounce(() => {
     setIsScrolled(window.scrollY > 20);
-  }, []);
+  }, 100);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", debouncedHandleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", debouncedHandleScroll);
     };
-  }, [handleScroll]);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
