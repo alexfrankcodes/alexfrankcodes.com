@@ -4,26 +4,32 @@ import Navbar from "../components/common/Navbar";
 import ProgressBar from "../components/common/ProgressBar";
 import SkeletonLoader from "../components/common/SkeletonLoader";
 
-const About = dynamic(() => import("../components/about/About"), {
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const About = dynamic(() => 
+  sleep(2000).then(() => import("../components/about/About")), {
   loading: () => <SkeletonLoader />,
 });
-const Contact = dynamic(() => import("../components/Contact"), {
+const Contact = dynamic(() => 
+  sleep(2000).then(() => import("../components/Contact")), {
   loading: () => <SkeletonLoader />,
 });
 const FeaturedProjects = dynamic(
-  () => import("../components/projects/FeaturedProjects"),
+  () => sleep(2000).then(() => import("../components/projects/FeaturedProjects")),
   {
     loading: () => <SkeletonLoader />,
   }
 );
-const Footer = dynamic(() => import("../components/common/Footer"), {
+const Footer = dynamic(() => 
+  sleep(2000).then(() => import("../components/common/Footer")), {
   loading: () => <SkeletonLoader />,
 });
-const Landing = dynamic(() => import("../components/Landing"), {
+const Landing = dynamic(() => 
+  sleep(2000).then(() => import("../components/Landing")), {
   loading: () => <SkeletonLoader />,
 });
 const Mentorship = dynamic(
-  () => import("../components/mentorship/Mentorship"),
+  () => sleep(2000).then(() => import("../components/mentorship/Mentorship")),
   {
     loading: () => <SkeletonLoader />,
   }
