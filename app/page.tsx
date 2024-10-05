@@ -2,29 +2,30 @@ import dynamic from "next/dynamic";
 
 import Navbar from "../components/common/Navbar";
 import ProgressBar from "../components/common/ProgressBar";
+import SkeletonLoader from "../components/common/SkeletonLoader";
 
 const About = dynamic(() => import("../components/about/About"), {
-  loading: () => <p>Loading...</p>,
+  loading: () => <SkeletonLoader />,
 });
 const Contact = dynamic(() => import("../components/Contact"), {
-  loading: () => <p>Loading...</p>,
+  loading: () => <SkeletonLoader />,
 });
 const FeaturedProjects = dynamic(
   () => import("../components/projects/FeaturedProjects"),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <SkeletonLoader />,
   }
 );
 const Footer = dynamic(() => import("../components/common/Footer"), {
-  loading: () => <p>Loading...</p>,
+  loading: () => <SkeletonLoader />,
 });
 const Landing = dynamic(() => import("../components/Landing"), {
-  loading: () => <p>Loading...</p>,
+  loading: () => <SkeletonLoader />,
 });
 const Mentorship = dynamic(
   () => import("../components/mentorship/Mentorship"),
   {
-    loading: () => <p>Loading...</p>,
+    loading: () => <SkeletonLoader />,
   }
 );
 
