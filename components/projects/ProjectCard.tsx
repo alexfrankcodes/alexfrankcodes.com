@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
+import { cn } from "@/lib/utils";
 
 interface ProjectCardProps {
   title: string;
@@ -18,7 +19,10 @@ const ProjectCard = ({
   github,
 }: ProjectCardProps) => (
   <motion.div
-    className="bg-muted dark:bg-muted-dark rounded-lg p-6 flex flex-col justify-between text-foreground dark:text-muted-foreground-dark"
+    className={cn(
+      "bg-muted dark:bg-muted-dark rounded-lg p-6 flex flex-col justify-between",
+      "text-foreground dark:text-muted-foreground-dark"
+    )}
     whileHover={{ scale: 1.05, y: 1, x: -1 }}
   >
     <div className="flex flex-col justify-between">
