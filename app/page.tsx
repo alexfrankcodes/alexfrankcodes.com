@@ -11,48 +11,36 @@ import {
   FooterSkeleton
 } from "../components/common/SkeletonLoader";
 
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const About = dynamic(() => 
-  sleep(2000).then(() => {
-    console.log('About component loaded');
-    return import("../components/about/About");
-  }), {
-  loading: () => {
-    console.log('About component loading');
-    return <AboutSkeleton />;
-  },
+const About = dynamic(() => import("../components/about/About"), {
+  loading: () => <AboutSkeleton />,
   ssr: false,
 });
 
-const Contact = dynamic(() => 
-  sleep(2000).then(() => import("../components/Contact")), {
+const Contact = dynamic(() => import("../components/Contact"), {
   loading: () => <ContactSkeleton />,
   ssr: false,
 });
 
 const FeaturedProjects = dynamic(
-  () => sleep(2000).then(() => import("../components/projects/FeaturedProjects")),
+  () => import("../components/projects/FeaturedProjects"),
   {
     loading: () => <ProjectsSkeleton />,
     ssr: false,
   }
 );
 
-const Footer = dynamic(() => 
-  sleep(2000).then(() => import("../components/common/Footer")), {
+const Footer = dynamic(() => import("../components/common/Footer"), {
   loading: () => <FooterSkeleton />,
   ssr: false,
 });
 
-const Landing = dynamic(() => 
-  sleep(2000).then(() => import("../components/Landing")), {
+const Landing = dynamic(() => import("../components/Landing"), {
   loading: () => <LandingSkeleton />,
   ssr: false,
 });
 
 const Mentorship = dynamic(
-  () => sleep(2000).then(() => import("../components/mentorship/Mentorship")),
+  () => import("../components/mentorship/Mentorship"),
   {
     loading: () => <MentorshipSkeleton />,
     ssr: false,
