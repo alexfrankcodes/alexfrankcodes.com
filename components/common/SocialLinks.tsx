@@ -15,7 +15,7 @@ const SocialLink = ({ href, icon: Icon, label, size }: SocialLinkProps) => (
   <motion.div whileHover={{ scale: 1.1, y: -5 }}>
     <Link
       href={href}
-      className="text-muted-foreground dark:text-muted-foreground-dark hover:text-accent-secondary dark:hover:text-accent-secondary-dark"
+      className="text-muted-foreground dark:text-muted-foreground-dark hover:text-accent-secondary dark:hover:text-accent-secondary-dark focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark rounded"
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}

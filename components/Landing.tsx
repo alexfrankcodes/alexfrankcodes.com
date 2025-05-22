@@ -16,7 +16,7 @@ const Landing = () => {
 
       <motion.a
         href="./AlexanderFrank_Resume.pdf"
-        className="bg-accent dark:bg-accent-dark hover:bg-accent-secondary dark:hover:bg-accent-secondary-dark text-white py-2 px-6 mt-8 rounded-full inline-flex items-center"
+        className="bg-accent dark:bg-accent-dark hover:bg-accent-secondary dark:hover:bg-accent-secondary-dark text-white py-2 px-6 mt-8 rounded-full inline-flex items-center focus:outline-none focus:ring-2 focus:ring-accent-secondary dark:focus:ring-accent-secondary-dark"
         download
         whileHover={{ scale: 1.1 }}
         transition={{ duration: 0.2, ease: "easeInOut" }}
