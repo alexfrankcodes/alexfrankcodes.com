@@ -105,7 +105,7 @@ const Navbar = () => {
                 >
                   <Link
                     href={item.href}
-                    className={`transition-colors ${
+                    className={`transition-colors focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark rounded ${
                       isActive(item.href)
                         ? "text-accent dark:text-accent-dark"
                         : "text-black dark:text-white hover:text-accent-secondary dark:hover:text-accent-secondary-dark"
@@ -127,7 +127,7 @@ const Navbar = () => {
         <div className="md:hidden flex items-center space-x-4">
           <ThemeToggle />
           <button
-            className="text-foreground dark:text-foreground-dark"
+            className="text-foreground dark:text-foreground-dark focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark rounded"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle Menu"
           >
@@ -165,7 +165,7 @@ const Navbar = () => {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark ${
                       isActive(item.href)
                         ? "text-accent dark:text-accent-dark"
                         : "text-foreground dark:text-foreground-dark hover:text-accent-secondary dark:hover:text-accent-secondary-dark"
