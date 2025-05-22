@@ -49,7 +49,7 @@ const Mentorship = () => {
         <motion.div className="text-center" whileHover={{ scale: 1.1 }}>
           <Link
             href="mailto:alexfrankcodes@gmail.com?subject=Mentorship Request"
-            className="inline-block bg-accent dark:bg-accent-dark hover:bg-accent-secondary dark:hover:bg-accent-secondary-dark text-white  py-3 px-8 rounded-full text-lg transition-colors duration-300"
+            className="inline-block bg-accent dark:bg-accent-dark hover:bg-accent-secondary dark:hover:bg-accent-secondary-dark text-white  py-3 px-8 rounded-full text-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent-secondary dark:focus:ring-accent-secondary-dark"
           >
             Hit Me Up!
           </Link>
