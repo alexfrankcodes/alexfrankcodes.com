@@ -3,6 +3,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { ThemeProvider } from "../providers/ThemeProvider";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -28,6 +29,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script id="theme-script" strategy="beforeInteractive">
+          {`
+            (function() {
+              try {
+                var theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'system') {
+                  var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  theme = dark ? 'dark' : 'light';
+                }
+                document.documentElement.classList.add(theme);
+              } catch (e) {}
+            })();
+          `}
+        </Script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background dark:bg-background-dark text-foreground dark:text-foreground-dark`}
       >
