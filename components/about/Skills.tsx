@@ -1,41 +1,29 @@
-import { FaNodeJs, FaReact } from "react-icons/fa";
-import {
-  SiGraphql,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiTypescript,
-} from "react-icons/si";
+import { skills } from "@/data/skills";
 
 const Skills = () => {
-  const skillsList = [
-    { icon: FaReact, name: "React", color: "text-blue-400" },
-    {
-      icon: SiNextdotjs,
-      name: "Next.js",
-      color: "text-black dark:text-white",
-    },
-    { icon: SiTailwindcss, name: "Tailwind", color: "text-teal-400" },
-    { icon: SiTypescript, name: "TypeScript", color: "text-blue-500" },
-    { icon: FaNodeJs, name: "Node.js", color: "text-green-500" },
-    { icon: SiGraphql, name: "GraphQL", color: "text-pink-500" },
-  ];
-
   return (
-    <div className="mt-8 lg:mt-0 ">
-      <h2 className="text-2xl font-bold mt-6 mb-8 text-foreground dark:text-foreground-dark">
+    <div className="mt-12 lg:mt-8">
+      <h2 className="text-2xl font-display italic mt-6 mb-8 text-foreground">
         Skills
       </h2>
-      <div className="lg:ml-24 grid lg:grid-cols-3 grid-cols-2 gap-x-8 gap-y-4 ">
-        {skillsList.map((skill) => (
-          <div key={skill.name} className="flex items-center space-x-3">
-            <div className={`${skill.color || ""}`}>
-              <skill.icon size={28} />
+      <div className="lg:ml-24 grid lg:grid-cols-3 grid-cols-2 gap-3">
+        {skills.map((skill) => (
+          <div
+            key={skill.name}
+            className="group flex items-center gap-3 p-3 rounded-lg transition-all duration-300 hover:bg-accent/5"
+          >
+            <div className={`${skill.colorClass} p-2 rounded-lg bg-surface transition-colors duration-300 group-hover:bg-accent/10`}>
+              <skill.icon size={22} />
             </div>
-            <span className="text-lg">{skill.name}</span>
+            <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+              {skill.name}
+            </span>
           </div>
         ))}
       </div>
-      <p className="mt-8 text-xl italic text-center">... and many more!</p>
+      <p className="mt-10 text-base italic text-center text-muted-foreground">
+        ... and many more!
+      </p>
     </div>
   );
 };

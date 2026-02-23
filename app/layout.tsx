@@ -1,24 +1,52 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { ThemeProvider } from "../providers/ThemeProvider";
+import { DM_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
 });
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-display",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Alex Frank | Software Engineer",
+  metadataBase: new URL("https://alexfrankcodes.com"),
+  title: {
+    default: "Alex Frank | Software Engineer",
+    template: "%s | Alex Frank",
+  },
   description: "The personal website of Software Engineer Alexander Frank.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Alex Frank | Software Engineer",
+    description: "The personal website of Software Engineer Alexander Frank.",
+    url: "https://alexfrankcodes.com",
+    siteName: "alexfrankcodes.com",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Alex Frank | Software Engineer",
+    description: "The personal website of Software Engineer Alexander Frank.",
+  },
 };
 
 export default function RootLayout({
@@ -29,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background dark:bg-background-dark text-foreground dark:text-foreground-dark`}
+        className={`${dmSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}
       >
         <ThemeProvider
           attribute="class"

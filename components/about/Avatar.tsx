@@ -1,16 +1,20 @@
-"use client";
-import { motion } from "framer-motion";
 import Image from "next/image";
-import pro from "../../public/img/pro.png";
-
-const hoverEffect = { scale: 1.1 };
+import pro from "@/public/img/pro.png";
 
 const Avatar = () => (
-  <motion.div className="hidden lg:block" whileHover={hoverEffect}>
-    <div className="w-64 h-64 rounded-full border-2 border-ring dark:border-ring-dark overflow-hidden">
-      <Image src={pro} alt="Alex Frank" priority className="object-cover w-full h-full" />
+  <div className="hidden lg:block transition-all duration-500 hover:scale-[1.03]">
+    <div className="relative">
+      <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-accent/30 to-accent-secondary/20 blur-md" />
+      <div className="relative w-64 h-64 rounded-full border border-border/60 overflow-hidden">
+        <Image
+          src={pro}
+          alt="Alex Frank"
+          priority
+          className="object-cover w-full h-full"
+        />
+      </div>
     </div>
-  </motion.div>
+  </div>
 );
 
 export default Avatar;
