@@ -4,20 +4,14 @@ import { motion } from "framer-motion";
 import debounce from "lodash.debounce";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
-import { ThemeToggle } from "./ThemeToggle";
+import { NAV_ITEMS } from "@/data/navigation";
+import { scrollToHash } from "@/lib/scroll";
+import { ThemeToggle } from "@/components/common/ThemeToggle";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [clickedItem, setClickedItem] = useState("");
-
-  const navItems = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Projects", href: "#projects" },
-    { label: "Mentorship", href: "#mentorship" },
-    { label: "Contact", href: "#contact" },
-  ];
 
   // Memoize the debouncedHandleScroll function
   const debouncedHandleScroll = useCallback(
@@ -50,25 +44,10 @@ const Navbar = () => {
 
   const isActive = (href: string) => clickedItem === href;
 
-  const smoothScroll = (targetId: string) => {
-    const target = document.querySelector(targetId);
-    if (target) {
-      const navbarHeight = document.querySelector("nav")?.offsetHeight || 0;
-      const targetPosition =
-        target.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = targetPosition - navbarHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
-  };
-
   const handleClick = (href: string) => {
     setClickedItem(href);
     setIsMenuOpen(false);
-    smoothScroll(href);
+    scrollToHash(href);
 
     // Reset clickedItem after a brief delay
     setTimeout(() => {
@@ -78,16 +57,16 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-gray-100/90 dark:bg-gray-900/90 shadow-lg backdrop-blur-sm"
-          : "bg-gray-100/70 dark:bg-gray-900/70 backdrop-blur-sm"
+          ? "bg-background/80 border-b border-accent/10 shadow-[0_1px_12px_rgb(var(--accent)/0.06)] backdrop-blur-xl"
+          : "bg-background/50 border-b border-transparent backdrop-blur-md"
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link
           href="/"
-          className="text-2xl font-bold text-foreground dark:text-foreground-dark"
+          className="text-xl font-display italic text-foreground hover:text-accent transition-colors duration-300"
         >
           Alex Frank
         </Link>
@@ -95,9 +74,9 @@ const Navbar = () => {
         {/* Desktop menu with ThemeToggle */}
         <div className="hidden md:flex items-center space-x-6">
           <ThemeToggle />
-          <div className="w-px h-6 bg-gray-300 dark:bg-gray-700"></div>
+          <div className="w-px h-6 bg-border"></div>
           <ul className="flex space-x-6">
-            {navItems.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <motion.div
                   whileHover={{ y: -2 }}
@@ -105,10 +84,10 @@ const Navbar = () => {
                 >
                   <Link
                     href={item.href}
-                    className={`transition-colors focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark rounded ${
+                    className={`transition-colors focus:outline-none focus:ring-2 focus:ring-accent rounded ${
                       isActive(item.href)
-                        ? "text-accent dark:text-accent-dark"
-                        : "text-black dark:text-white hover:text-accent-secondary dark:hover:text-accent-secondary-dark"
+                        ? "text-accent"
+                        : "text-foreground hover:text-accent-secondary"
                     }`}
                     onClick={(e) => {
                       e.preventDefault();
@@ -127,7 +106,7 @@ const Navbar = () => {
         <div className="md:hidden flex items-center space-x-4">
           <ThemeToggle />
           <button
-            className="text-foreground dark:text-foreground-dark focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark rounded"
+            className="text-foreground focus:outline-none focus:ring-2 focus:ring-accent rounded"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle Menu"
           >
@@ -160,15 +139,15 @@ const Navbar = () => {
           transition={{ duration: 0.3 }}
         >
           {isMenuOpen && (
-            <ul className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background dark:bg-background-dark text-foreground dark:text-foreground-dark bg-opacity-90">
-              {navItems.map((item) => (
+            <ul className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background/95 text-foreground">
+              {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark ${
+                    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-accent ${
                       isActive(item.href)
-                        ? "text-accent dark:text-accent-dark"
-                        : "text-foreground dark:text-foreground-dark hover:text-accent-secondary dark:hover:text-accent-secondary-dark"
+                        ? "text-accent"
+                        : "text-foreground hover:text-accent-secondary"
                     }`}
                     onClick={(e) => {
                       e.preventDefault();

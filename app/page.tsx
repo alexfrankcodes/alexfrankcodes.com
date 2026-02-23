@@ -1,11 +1,11 @@
-import Navbar from "../components/common/Navbar";
-import ProgressBar from "../components/common/ProgressBar";
-import About from "../components/about/About";
-import Contact from "../components/Contact";
-import FeaturedProjects from "../components/projects/FeaturedProjects";
-import Footer from "../components/common/Footer";
-import Landing from "../components/Landing";
-import Mentorship from "../components/mentorship/Mentorship";
+import About from "@/components/about/About";
+import Contact from "@/components/Contact";
+import Landing from "@/components/Landing";
+import Footer from "@/components/common/Footer";
+import Navbar from "@/components/common/Navbar";
+import ProgressBar from "@/components/common/ProgressBar";
+import Mentorship from "@/components/mentorship/Mentorship";
+import FeaturedProjects from "@/components/projects/FeaturedProjects";
 
 export default function Home() {
   return (
