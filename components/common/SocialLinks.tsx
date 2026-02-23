@@ -1,61 +1,36 @@
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { IconType } from "react-icons";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+import { socialLinks } from "@/data/socialLinks";
+import { SocialLink } from "@/lib/types";
 
-interface SocialLinkProps {
-  href: string;
-  icon: IconType;
-  label: string;
+interface SocialLinkItemProps extends SocialLink {
   size: number;
 }
 
-const SocialLink = ({ href, icon: Icon, label, size }: SocialLinkProps) => (
-  <motion.div whileHover={{ scale: 1.1, y: -5 }}>
-    <Link
-      href={href}
-      className="text-muted-foreground dark:text-muted-foreground-dark hover:text-accent-secondary dark:hover:text-accent-secondary-dark focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark rounded"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={label}
-    >
+const SocialLinkItem = ({ href, icon: Icon, label, size }: SocialLinkItemProps) => (
+  <Link
+    href={href}
+    className="group relative text-muted-foreground hover:text-accent transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent rounded-lg p-2"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={label}
+  >
+    <span className="block transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110">
       <Icon size={size} />
-    </Link>
-  </motion.div>
+    </span>
+    <span className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-0 h-px bg-accent transition-all duration-300 group-hover:w-4" />
+  </Link>
 );
 
 interface SocialLinksProps {
   size: number;
-  links?: SocialLinkProps[];
+  links?: SocialLink[];
 }
 
-const defaultLinks: SocialLinkProps[] = [
-  {
-    href: "https://github.com/alexfrankcodes",
-    icon: FaGithub,
-    label: "Go to Alex's GitHub",
-    size: 0, // This will be overwritten by the size prop
-  },
-  {
-    href: "https://www.linkedin.com/in/alexfrankcodes/",
-    icon: FaLinkedin,
-    label: "Go to Alex's LinkedIn",
-    size: 0,
-  },
-  {
-    href: "mailto:alexfrankcodes@gmail.com",
-    icon: MdEmail,
-    label: "Send Alex an email",
-    size: 0,
-  },
-];
-
-const SocialLinks = ({ size, links = defaultLinks }: SocialLinksProps) => {
+const SocialLinks = ({ size, links = socialLinks }: SocialLinksProps) => {
   return (
-    <div className="flex justify-center space-x-8">
-      {links.map((link, index) => (
-        <SocialLink key={index} {...link} size={size} />
+    <div className="flex justify-center items-center gap-4">
+      {links.map((link) => (
+        <SocialLinkItem key={link.id} {...link} size={size} />
       ))}
     </div>
   );

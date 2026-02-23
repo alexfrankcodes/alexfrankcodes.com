@@ -9,51 +9,43 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        body: ["var(--font-body)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Georgia", "serif"],
+        mono: ["var(--font-mono)", "monospace"],
+      },
       colors: {
-        background: {
-          DEFAULT: "#ffffff",
-          dark: "#111827",
-        },
-        foreground: {
-          DEFAULT: "#000000",
-          dark: "#f1f5f9",
-        },
+        background: "rgb(var(--background) / <alpha-value>)",
+        foreground: "rgb(var(--foreground) / <alpha-value>)",
+        border: "rgb(var(--border) / <alpha-value>)",
         muted: {
-          DEFAULT: "#f1f5f9",
-          dark: "#334155",
-          foreground: {
-            DEFAULT: "#64748b",
-            dark: "#e0e0e0",
-          },
+          DEFAULT: "rgb(var(--muted) / <alpha-value>)",
+          foreground: "rgb(var(--muted-foreground) / <alpha-value>)",
         },
         accent: {
-          DEFAULT: "#22C55E",
-          dark: "#EC4899",
-          secondary: {
-            DEFAULT: "#1e9e4c",
-            dark: "#DB2777",
-          },
+          DEFAULT: "rgb(var(--accent) / <alpha-value>)",
+          secondary: "rgb(var(--accent-secondary) / <alpha-value>)",
         },
         secondary: {
-          DEFAULT: "#f1f5f9",
-          dark: "#334155",
-          foreground: {
-            DEFAULT: "#0f172a",
-            dark: "#f1f5f9",
-          },
+          DEFAULT: "rgb(var(--secondary) / <alpha-value>)",
+          foreground: "rgb(var(--secondary-foreground) / <alpha-value>)",
         },
-        primary: {
-          DEFAULT: "#0f172a",
-          dark: "#f1f5f9",
-          foreground: {
-            DEFAULT: "#f1f5f9",
-            dark: "#0f172a",
-          },
+        ring: "rgb(var(--ring) / <alpha-value>)",
+        surface: "rgb(var(--surface) / <alpha-value>)",
+      },
+      keyframes: {
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        ring: {
-          DEFAULT: "#22C55E",
-          dark: "#cbd5e1",
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
+      },
+      animation: {
+        "fade-up": "fade-up 0.6s ease-out forwards",
+        "fade-in": "fade-in 0.6s ease-out forwards",
       },
     },
   },

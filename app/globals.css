@@ -1,3 +1,68 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 249 247;
+    --foreground: 23 23 23;
+    --border: 220 215 207;
+    --muted: 243 240 236;
+    --muted-foreground: 100 100 100;
+    --accent: 22 163 74;
+    --accent-secondary: 21 128 61;
+    --secondary: 240 237 232;
+    --secondary-foreground: 23 23 23;
+    --ring: 22 163 74;
+    --surface: 246 244 240;
+  }
+
+  .dark {
+    --background: 12 12 14;
+    --foreground: 237 237 237;
+    --border: 38 38 42;
+    --muted: 24 24 28;
+    --muted-foreground: 160 160 165;
+    --accent: 232 62 140;
+    --accent-secondary: 205 40 115;
+    --secondary: 22 22 26;
+    --secondary-foreground: 237 237 237;
+    --ring: 180 180 185;
+    --surface: 18 18 22;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      135deg,
+      rgb(var(--accent)) 0%,
+      rgb(var(--accent-secondary)) 100%
+    );
+  }
+
+  .glass {
+    @apply bg-surface/60 backdrop-blur-md border border-border/50;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+}
