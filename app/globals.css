@@ -4,31 +4,21 @@
 
 @layer base {
   :root {
-    --background: 250 249 247;
-    --foreground: 23 23 23;
-    --border: 220 215 207;
-    --muted: 243 240 236;
-    --muted-foreground: 100 100 100;
-    --accent: 22 163 74;
-    --accent-secondary: 21 128 61;
-    --secondary: 240 237 232;
-    --secondary-foreground: 23 23 23;
-    --ring: 22 163 74;
-    --surface: 246 244 240;
+    --background: 250 250 247;
+    --foreground: 25 28 34;
+    --border: 223 222 214;
+    --muted-foreground: 93 100 112;
+    --accent: 138 93 18;
+    --surface: 243 242 237;
   }
 
   .dark {
-    --background: 12 12 14;
-    --foreground: 237 237 237;
-    --border: 38 38 42;
-    --muted: 24 24 28;
-    --muted-foreground: 160 160 165;
-    --accent: 232 62 140;
-    --accent-secondary: 205 40 115;
-    --secondary: 22 22 26;
-    --secondary-foreground: 237 237 237;
-    --ring: 180 180 185;
-    --surface: 18 18 22;
+    --background: 10 13 18;
+    --foreground: 231 235 242;
+    --border: 30 37 48;
+    --muted-foreground: 139 149 166;
+    --accent: 224 168 62;
+    --surface: 16 20 27;
   }
 
   * {
@@ -43,26 +33,59 @@
     @apply bg-background text-foreground font-body;
   }
 
-  h1, h2, h3, h4 {
-    @apply font-display;
+  section {
+    scroll-margin-top: 5rem;
+  }
+
+  ::selection {
+    background: rgb(var(--accent) / 0.25);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
 
 @layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(
-      135deg,
-      rgb(var(--accent)) 0%,
-      rgb(var(--accent-secondary)) 100%
-    );
+  .walk-path {
+    stroke-dasharray: var(--walk-length);
+    stroke-dashoffset: var(--walk-length);
+    animation: walk-draw 10s cubic-bezier(0.16, 0.7, 0.45, 1) 0.2s forwards;
   }
 
-  .glass {
-    @apply bg-surface/60 backdrop-blur-md border border-border/50;
+  @keyframes walk-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
   }
 
-  .section-padding {
-    @apply py-20 md:py-28;
+  .fade-rise {
+    opacity: 0;
+    animation: fade-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  @keyframes fade-rise {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .walk-path {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+    .fade-rise {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
   }
 }
