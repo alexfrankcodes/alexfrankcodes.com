@@ -1,24 +1,19 @@
 import { SocialLink } from "@/lib/types";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
 
 export const socialLinks: SocialLink[] = [
   {
     id: "github",
+    label: "GitHub",
     href: "https://github.com/alexfrankcodes",
-    icon: FaGithub,
-    label: "Go to Alex's GitHub",
   },
   {
     id: "linkedin",
+    label: "LinkedIn",
     href: "https://www.linkedin.com/in/alexfrankcodes/",
-    icon: FaLinkedin,
-    label: "Go to Alex's LinkedIn",
   },
   {
     id: "email",
+    label: "Email",
     href: "mailto:alexfrankcodes@gmail.com",
-    icon: MdEmail,
-    label: "Send Alex an email",
   },
 ];

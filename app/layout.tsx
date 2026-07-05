@@ -1,26 +1,26 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { DM_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { Bricolage_Grotesque } from "next/font/google";
+import localFont from "next/font/local";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
+const geist = localFont({
+  src: "./fonts/GeistVF.woff",
   variable: "--font-body",
   display: "swap",
 });
 
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-display",
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-mono",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -57,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${dmSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}
+        className={`${geist.variable} ${geistMono.variable} ${bricolage.variable} antialiased bg-background text-foreground`}
       >
         <ThemeProvider
           attribute="class"
