@@ -4,6 +4,8 @@ export interface NavItem {
   href: `#${string}`;
 }
 
+export type ProjectSketchKind = "walk" | "sort" | "ship" | "chat";
+
 export interface Project {
   id: string;
   title: string;
@@ -15,6 +17,7 @@ export interface Project {
   };
   link?: string;
   github?: string;
+  sketch?: ProjectSketchKind;
 }
 
 export interface MentorshipArea {

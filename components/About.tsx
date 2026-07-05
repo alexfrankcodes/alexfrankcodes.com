@@ -24,12 +24,18 @@ const About = () => (
           playing video games.
         </p>
       </div>
-      <Image
-        src={pro}
-        alt="Alex Frank"
-        priority
-        className="w-24 h-24 rounded-full object-cover border border-border shrink-0"
-      />
+      <div className="relative shrink-0 self-center sm:self-start">
+        <div
+          className="absolute -inset-2 rounded-full border border-dashed border-accent/40 animate-orbit"
+          aria-hidden="true"
+        />
+        <Image
+          src={pro}
+          alt="Alex Frank"
+          priority
+          className="w-24 h-24 rounded-full object-cover border border-border"
+        />
+      </div>
     </div>
     <p className="mt-10 font-mono text-sm text-muted">
       <span className="text-foreground">Working with</span>{" "}

@@ -11,7 +11,7 @@ const Contact = () => (
     <p className="mt-8">
       <a
         href="mailto:alexfrankcodes@gmail.com"
-        className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-foreground hover:text-accent transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
+        className="link-draw font-display text-2xl sm:text-3xl font-semibold tracking-tight text-foreground hover:text-accent transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
       >
         alexfrankcodes@gmail.com
       </a>
