@@ -1,17 +1,16 @@
 import { socialLinks } from "@/data/socialLinks";
-import { SECTION_IDS } from "@/data/navigation";
-import NameWalk from "@/components/NameWalk";
+import WindField from "@/components/WindField";
 
 const Hero = () => (
   <section className="pt-10 pb-24 sm:pt-16 sm:pb-32">
     <div className="relative">
       <div
-        className="absolute inset-x-0 -top-6 sm:-top-10 pointer-events-none select-none"
+        className="absolute inset-x-0 -top-6 sm:-top-10 h-72 sm:h-80 pointer-events-none select-none"
         aria-hidden="true"
       >
-        <NameWalk />
+        <WindField />
       </div>
-      <div className="relative pt-40 sm:pt-48">
+      <div className="relative pt-44 sm:pt-52">
         <h1 className="fade-rise font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground">
           Alex Frank
         </h1>
@@ -48,19 +47,6 @@ const Hero = () => (
             </a>
           </li>
         </ul>
-        <p
-          className="fade-rise mt-10 font-mono text-xs text-muted/70"
-          style={{ animationDelay: "0.45s" }}
-        >
-          the line above is a random walk seeded by &ldquo;alex frank&rdquo;
-          &mdash;{" "}
-          <a
-            href={`#${SECTION_IDS.projects}`}
-            className="underline underline-offset-4 decoration-border hover:text-foreground transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
-          >
-            see Name Walker
-          </a>
-        </p>
       </div>
     </div>
   </section>
