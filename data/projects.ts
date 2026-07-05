@@ -13,6 +13,7 @@ export const projects: Project[] = [
     technologies: ["React", "p5.js"],
     link: "https://alexfrankcodes.github.io/name-walker/",
     github: "https://github.com/alexfrankcodes/name-walker",
+    sketch: "walk",
   },
   {
     id: "rainbow-sorts",
@@ -22,6 +23,7 @@ export const projects: Project[] = [
     technologies: ["HTML", "CSS", "p5.js"],
     link: "https://alexfrankcodes.github.io/rainbow-sorts/",
     github: "https://github.com/alexfrankcodes/rainbow-sorts",
+    sketch: "sort",
   },
   {
     id: "galaxy-fighter",
@@ -30,6 +32,7 @@ export const projects: Project[] = [
       "A 2D arcade shooter game built in C++ with OpenFrameworks. The player controls a spaceship and defends against incoming enemy ships and asteroids.",
     technologies: ["C++", "OpenFrameworks"],
     github: "https://github.com/alexfrankcodes/arcade-shooter",
+    sketch: "ship",
   },
   {
     id: "devchat",
@@ -38,5 +41,6 @@ export const projects: Project[] = [
       "A chat application for developers. Users can enter a username and chatroom to have real-time discussions.",
     technologies: ["React", "TypeScript", "Express", "Socket.io"],
     github: "https://github.com/alexfrankcodes/devchat",
+    sketch: "chat",
   },
 ];
