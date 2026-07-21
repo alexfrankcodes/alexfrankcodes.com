@@ -1,28 +1,38 @@
+import { socialLinks } from "@/data/socialLinks";
 import { SECTION_IDS } from "@/data/navigation";
-import SocialLinks from "@/components/common/SocialLinks";
+import Section from "@/components/Section";
 
-const Contact = () => {
-  return (
-    <section
-      id={SECTION_IDS.contact}
-      className="relative section-padding"
-    >
-      {/* Subtle radial glow */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-        <div className="w-[400px] h-[400px] rounded-full bg-accent/5 blur-[100px]" />
-      </div>
-      <div className="container mx-auto px-4 text-center relative">
-        <h2 className="text-4xl md:text-5xl font-display italic mb-8 text-foreground">
-          Get in Touch
-        </h2>
-        <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-          I{"'"}m always open to new opportunities, collaborations, and
-          mentorship requests. Feel free to reach out!
-        </p>
-        <SocialLinks size={28} />
-      </div>
-    </section>
-  );
-};
+const Contact = () => (
+  <Section id={SECTION_IDS.contact} title="Contact">
+    <p className="text-muted leading-relaxed max-w-lg">
+      I{"'"}m always open to new opportunities, collaborations, and mentorship
+      requests. Feel free to reach out!
+    </p>
+    <p className="mt-8">
+      <a
+        href="mailto:alexfrankcodes@gmail.com"
+        className="link-draw font-display text-2xl sm:text-3xl font-semibold tracking-tight text-foreground hover:text-accent transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
+      >
+        alexfrankcodes@gmail.com
+      </a>
+    </p>
+    <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm">
+      {socialLinks
+        .filter((link) => !link.href.startsWith("mailto:"))
+        .map((link) => (
+          <li key={link.id}>
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted hover:text-foreground transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
+            >
+              {link.label} ↗
+            </a>
+          </li>
+        ))}
+    </ul>
+  </Section>
+);
 
 export default Contact;

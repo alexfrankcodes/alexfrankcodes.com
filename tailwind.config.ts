@@ -1,9 +1,9 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 
 const config: Config = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
@@ -11,45 +11,48 @@ const config: Config = {
     extend: {
       fontFamily: {
         body: ["var(--font-body)", "system-ui", "sans-serif"],
-        display: ["var(--font-display)", "Georgia", "serif"],
-        mono: ["var(--font-mono)", "monospace"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       colors: {
         background: "rgb(var(--background) / <alpha-value>)",
         foreground: "rgb(var(--foreground) / <alpha-value>)",
         border: "rgb(var(--border) / <alpha-value>)",
-        muted: {
-          DEFAULT: "rgb(var(--muted) / <alpha-value>)",
-          foreground: "rgb(var(--muted-foreground) / <alpha-value>)",
-        },
-        accent: {
-          DEFAULT: "rgb(var(--accent) / <alpha-value>)",
-          secondary: "rgb(var(--accent-secondary) / <alpha-value>)",
-        },
-        secondary: {
-          DEFAULT: "rgb(var(--secondary) / <alpha-value>)",
-          foreground: "rgb(var(--secondary-foreground) / <alpha-value>)",
-        },
-        ring: "rgb(var(--ring) / <alpha-value>)",
+        muted: "rgb(var(--muted-foreground) / <alpha-value>)",
+        accent: "rgb(var(--accent) / <alpha-value>)",
         surface: "rgb(var(--surface) / <alpha-value>)",
       },
-      keyframes: {
-        "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        "fade-in": {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
+      maxWidth: {
+        column: "42rem",
       },
-      animation: {
-        "fade-up": "fade-up 0.6s ease-out forwards",
-        "fade-in": "fade-in 0.6s ease-out forwards",
+      typography: {
+        // Wired to the same CSS variables as the rest of the site so prose
+        // recolors automatically when .dark/.light toggles — no prose-invert.
+        DEFAULT: {
+          css: {
+            "--tw-prose-body": "rgb(var(--foreground))",
+            "--tw-prose-headings": "rgb(var(--foreground))",
+            "--tw-prose-links": "rgb(var(--accent))",
+            "--tw-prose-bold": "rgb(var(--foreground))",
+            "--tw-prose-counters": "rgb(var(--muted-foreground))",
+            "--tw-prose-bullets": "rgb(var(--muted-foreground))",
+            "--tw-prose-hr": "rgb(var(--border))",
+            "--tw-prose-quotes": "rgb(var(--foreground))",
+            "--tw-prose-quote-borders": "rgb(var(--border))",
+            "--tw-prose-code": "rgb(var(--foreground))",
+            "--tw-prose-th-borders": "rgb(var(--border))",
+            "--tw-prose-td-borders": "rgb(var(--border))",
+            maxWidth: "none",
+            a: { textDecoration: "none", fontWeight: "500" },
+            "a:hover": { textDecoration: "underline" },
+            "code::before": { content: '""' },
+            "code::after": { content: '""' },
+          },
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [typography],
 };
 
 export default config;

@@ -1,0 +1,35 @@
+---
+title: Project Purpose
+date: 2026-07-21
+summary: Why I decided to pursue this project
+draft: true
+---
+
+A little bit of context to start us off: I work for a mature organization, which means I spend most of my time building features, fixing defects, maintaining existing systems, and working within architectural decisions made long before I arrived. That work is definitely important, and it has taught me a great deal about production software, operational constraints, and the realities of maintaining systems that people depend on.
+ 
+Lately, I've been looking for ways to stretch beyond that at work — digging into design discussions, understanding *why* our systems are shaped the way they are, taking on the pieces of my tickets that touch architecture rather than just implementation. But the honest truth is that in an established codebase, the foundational decisions have already been made, and opportunities to make them from scratch are rare no matter how much you volunteer. I generally don't have a lot of agency in deciding how a domain should be modeled, how an application should be divided into components, how data should flow, how failures should be handled, or how security, scalability, observability, accessibility, and deployment should shape a overall design.
+ 
+So, this project is an attempt to fill some of the gaps, and practice skills that I may not always get the chance to develop in my day-to-day work.
+ 
+So what is this project? I'm calling it Cervane: a multi-tenant operations and SLA-management platform. Users will create cases, assign them to queues, and work them toward resolution against a deadline. Building this as a real system means confronting the same problems senior engineers deal with daily: isolating each tenant's data, designing authorization that actually holds up, encoding business rules that depend on time and business calendars, handling concurrency and conflicting writes, defining stable API contracts with idempotency and webhooks, running reliable background workers, and instrumenting the system well enough to operate it once it's live.
+ 
+## Designing under constraint, on purpose
+ 
+Here's the trap I want to avoid: a greenfield solo project has no real constraints. No traffic I didn't choose, no budget pressure, no legacy to work around, no teammates pushing back on my design. And system design judgment doesn't come from designing in a vacuum — it comes from making trade-offs under pressure. So I'm manufacturing the pressure deliberately:
+ 
+- **Explicit SLOs from day one.** I'll define latency and availability targets and an error budget, and hold the system to them with synthetic tenants and generated load. If nobody uses a system, you're not operating it — you're decorating it. My "users" will be load generators treated seriously.
+- **A cost ceiling.** The whole system runs within a fixed monthly budget, which forces real infrastructure trade-offs instead of "just add another service."
+- **Architecture Decision Records for every significant choice.** Each ADR will include the options I rejected and why. Since I don't have a teammate to argue with, the ADRs are where I argue with myself in writing.
+## Scope, or: how this project survives past week six
+ 
+The list of problems above is enormous — every item is weeks of serious work, and the most common fate of projects like this is dying under their own ambition. So here's the deliberately unimpressive first milestone:
+ 
+**v0 is single-tenant.** One organization, case creation and assignment, a naive SLA timer, basic auth, deployed and observable. That's it. Multi-tenancy, business calendars, webhooks, and the concurrency story are all *deferred on purpose* — each will arrive as its own milestone with its own design writeup, built on top of a system that's already running.
+ 
+"Done" for each milestone means the same three things: it's deployed, it meets its SLOs under generated load, and there's an ADR explaining the design. If the design held up, the metrics will say so. If it didn't, the postmortem becomes the blog post.
+ 
+## What this devlog will actually be
+ 
+I'll be honest about the failure mode of devlogs, too: an ambitious intro post followed by silence. So my commitment isn't "follow my journey" — it's that the posts here will be artifacts, not updates. Design writeups with real trade-offs. Bugs with the fix and the test that pins them. Load-test results with honest numbers, including the embarrassing ones.
+ 
+If you're reading this, thanks for joining me.
