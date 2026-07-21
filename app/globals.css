@@ -3,32 +3,35 @@
 @tailwind utilities;
 
 @layer base {
+  /* Two themes, named after times of flight. Night is the default. */
   :root {
-    --background: 250 249 247;
-    --foreground: 23 23 23;
-    --border: 220 215 207;
-    --muted: 243 240 236;
-    --muted-foreground: 100 100 100;
-    --accent: 22 163 74;
-    --accent-secondary: 21 128 61;
-    --secondary: 240 237 232;
-    --secondary-foreground: 23 23 23;
-    --ring: 22 163 74;
-    --surface: 246 244 240;
+    --background: 10 13 18;
+    --foreground: 231 235 242;
+    --border: 30 37 48;
+    --muted-foreground: 139 149 166;
+    --accent: 52 211 153;
+    --surface: 16 20 27;
+    color-scheme: dark;
   }
 
   .dark {
-    --background: 12 12 14;
-    --foreground: 237 237 237;
-    --border: 38 38 42;
-    --muted: 24 24 28;
-    --muted-foreground: 160 160 165;
-    --accent: 232 62 140;
-    --accent-secondary: 205 40 115;
-    --secondary: 22 22 26;
-    --secondary-foreground: 237 237 237;
-    --ring: 180 180 185;
-    --surface: 18 18 22;
+    --background: 10 13 18;
+    --foreground: 231 235 242;
+    --border: 30 37 48;
+    --muted-foreground: 139 149 166;
+    --accent: 52 211 153;
+    --surface: 16 20 27;
+    color-scheme: dark;
+  }
+
+  .light {
+    --background: 250 250 247;
+    --foreground: 25 28 34;
+    --border: 223 222 214;
+    --muted-foreground: 93 100 112;
+    --accent: 30 90 168;
+    --surface: 243 242 237;
+    color-scheme: light;
   }
 
   * {
@@ -41,28 +44,123 @@
 
   body {
     @apply bg-background text-foreground font-body;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
 
-  h1, h2, h3, h4 {
-    @apply font-display;
+  section {
+    scroll-margin-top: 5rem;
+  }
+
+  ::selection {
+    background: rgb(var(--accent) / 0.25);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    body {
+      transition: none;
+    }
   }
 }
 
 @layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
+  .fade-rise {
+    opacity: 0;
+    animation: fade-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  @keyframes fade-rise {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* scroll-triggered reveal, toggled by the Reveal component */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.revealed {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* slow dashed orbit around the avatar */
+  @keyframes orbit {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .animate-orbit {
+    animation: orbit 60s linear infinite;
+  }
+
+  /* accent underline that draws itself on hover/focus */
+  .link-draw {
     background-image: linear-gradient(
-      135deg,
-      rgb(var(--accent)) 0%,
-      rgb(var(--accent-secondary)) 100%
+      rgb(var(--accent)),
+      rgb(var(--accent))
     );
+    background-repeat: no-repeat;
+    background-position: left calc(100% - 0.05em);
+    background-size: 0% 2px;
+    transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-draw:hover,
+  .link-draw:focus-visible {
+    background-size: 100% 2px;
   }
 
-  .glass {
-    @apply bg-surface/60 backdrop-blur-md border border-border/50;
+  @media (prefers-reduced-motion: reduce) {
+    .fade-rise {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .animate-orbit {
+      animation: none;
+    }
+    .link-draw {
+      transition: none;
+    }
+  }
+}
+
+@layer components {
+  /* rehype-pretty-code wraps each fence in <figure data-rehype-pretty-code-figure>,
+     with a generated <pre><code> inside carrying per-token --shiki-dark/--shiki-light
+     vars (keepBackground: false, so our own surface color shows through). */
+  [data-rehype-pretty-code-figure] pre {
+    @apply my-6 overflow-x-auto rounded-lg border border-border bg-surface p-4 text-sm leading-relaxed;
   }
 
-  .section-padding {
-    @apply py-20 md:py-28;
+  [data-rehype-pretty-code-figure] code {
+    @apply font-mono;
+  }
+
+  [data-rehype-pretty-code-figure] span {
+    color: var(--shiki-light);
+  }
+
+  .dark [data-rehype-pretty-code-figure] span {
+    color: var(--shiki-dark);
+  }
+
+  .prose :not(pre) > code {
+    @apply rounded bg-surface px-1.5 py-0.5 text-[0.875em] font-mono;
   }
 }

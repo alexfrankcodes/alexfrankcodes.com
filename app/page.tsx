@@ -1,23 +1,29 @@
-import About from "@/components/about/About";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import WorkingWith from "@/components/WorkingWith";
+import Building from "@/components/Building";
+import Mentorship from "@/components/Mentorship";
 import Contact from "@/components/Contact";
-import Landing from "@/components/Landing";
-import Footer from "@/components/common/Footer";
-import Navbar from "@/components/common/Navbar";
-import ProgressBar from "@/components/common/ProgressBar";
-import Mentorship from "@/components/mentorship/Mentorship";
-import FeaturedProjects from "@/components/projects/FeaturedProjects";
+import Footer from "@/components/Footer";
+import ContourField from "@/components/ContourField";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center mx-auto max-w-screen-lg pt-16">
-      <Navbar />
-      <Landing />
-      <About />
-      <FeaturedProjects />
-      <Mentorship />
-      <Contact />
-      <Footer />
-      <ProgressBar />
-    </main>
+    <div className="relative">
+      <ContourField />
+      <div className="mx-auto max-w-column px-6">
+        <Header />
+        <main>
+          <Hero />
+          <About />
+          <WorkingWith />
+          <Building />
+          <Mentorship />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </div>
   );
 }
