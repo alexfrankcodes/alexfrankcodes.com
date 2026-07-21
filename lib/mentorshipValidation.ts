@@ -1,4 +1,4 @@
-export const MAX_RESUME_SIZE_BYTES = 5 * 1024 * 1024;
+export const MAX_RESUME_SIZE_BYTES = 4 * 1024 * 1024;
 
 export const ALLOWED_RESUME_MIME_TYPES = [
   "application/pdf",
@@ -63,7 +63,7 @@ export function validateMentorshipRequest(
 
   if (fields.resume) {
     if (fields.resume.size > MAX_RESUME_SIZE_BYTES) {
-      errors.resume = "Resume must be under 5MB.";
+      errors.resume = "Resume must be under 4MB.";
     } else if (!ALLOWED_RESUME_MIME_TYPES.includes(fields.resume.type)) {
       errors.resume = "Resume must be a PDF or Word document.";
     }
