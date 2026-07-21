@@ -5,11 +5,8 @@ import { useEffect, useState } from "react";
 
 // swatch colors mirror each theme's background/accent tokens in globals.css
 const THEMES = [
-  { id: "dark", label: "Night", bg: "#0A0D12", accent: "#E0A83E" },
-  { id: "light", label: "Day", bg: "#FAFAF7", accent: "#8A5D12" },
-  { id: "dusk", label: "Dusk", bg: "#14101E", accent: "#E8705F" },
-  { id: "dawn", label: "Dawn", bg: "#FAF4EE", accent: "#B5492A" },
-  { id: "radar", label: "Radar", bg: "#050807", accent: "#4ADE80" },
+  { id: "dark", label: "Night", bg: "#0A0D12", accent: "#34D399" },
+  { id: "light", label: "Day", bg: "#FAFAF7", accent: "#1E5AA8" },
 ];
 
 export function ThemeSwitcher() {
@@ -21,7 +18,7 @@ export function ThemeSwitcher() {
   }, []);
 
   if (!mounted) {
-    return <div className="w-[7.5rem] h-8" aria-hidden="true" />;
+    return <div className="w-10 h-8" aria-hidden="true" />;
   }
 
   return (

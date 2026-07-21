@@ -1,6 +1,5 @@
 import Image from "next/image";
 import pro from "@/public/img/pro.png";
-import { skills } from "@/data/skills";
 import { SECTION_IDS } from "@/data/navigation";
 import Section from "@/components/Section";
 
@@ -9,19 +8,18 @@ const About = () => (
     <div className="flex flex-col-reverse sm:flex-row sm:items-start gap-8">
       <div className="space-y-4 text-muted leading-relaxed">
         <p>
-          Hi there! My name is Alex. I{"'"}m currently working as a Software
-          Engineer for Southwest Airlines! ✈ I work remotely from San Jose,
-          CA.
+          Hi there! My name is Alex. I{"'"}m a software engineer at Southwest
+          Airlines, working remotely from San Jose, CA.
         </p>
         <p>
-          I{"'"}m passionate about building accessible, performant web apps
-          with a focus on user experience. I{"'"}m experienced with modern web
-          technologies including React, Next.js, and GraphQL.
+          I care about building software that{"'"}s fast, reliable,
+          accessible, and pleasant to use. These days most of my work is in
+          React, Next.js, and Postgres.
         </p>
         <p>
-          When I{"'"}m not hacking away at code, you can find me exploring new
-          hiking trails, spending time with my friends and family, reading, or
-          playing video games.
+          When I{"'"}m not writing code, you can find me hiking,
+          reading, traveling, learning, playing video games, or spending time with friends and
+          family.
         </p>
       </div>
       <div className="relative shrink-0 self-center sm:self-start">
@@ -37,10 +35,6 @@ const About = () => (
         />
       </div>
     </div>
-    <p className="mt-10 font-mono text-sm text-muted">
-      <span className="text-foreground">Working with</span>{" "}
-      {skills.join(" · ")} · and many more
-    </p>
   </Section>
 );
 

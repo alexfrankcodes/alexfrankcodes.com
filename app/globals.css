@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 @layer base {
-  /* Five themes, named after times of flight. Night is the default. */
+  /* Two themes, named after times of flight. Night is the default. */
   :root {
     --background: 10 13 18;
     --foreground: 231 235 242;
     --border: 30 37 48;
     --muted-foreground: 139 149 166;
-    --accent: 224 168 62;
+    --accent: 52 211 153;
     --surface: 16 20 27;
     color-scheme: dark;
   }
@@ -19,7 +19,7 @@
     --foreground: 231 235 242;
     --border: 30 37 48;
     --muted-foreground: 139 149 166;
-    --accent: 224 168 62;
+    --accent: 52 211 153;
     --surface: 16 20 27;
     color-scheme: dark;
   }
@@ -29,39 +29,9 @@
     --foreground: 25 28 34;
     --border: 223 222 214;
     --muted-foreground: 93 100 112;
-    --accent: 138 93 18;
+    --accent: 30 90 168;
     --surface: 243 242 237;
     color-scheme: light;
-  }
-
-  .dusk {
-    --background: 20 16 30;
-    --foreground: 237 232 244;
-    --border: 42 35 56;
-    --muted-foreground: 156 146 176;
-    --accent: 232 112 95;
-    --surface: 27 22 38;
-    color-scheme: dark;
-  }
-
-  .dawn {
-    --background: 250 244 238;
-    --foreground: 36 30 26;
-    --border: 229 217 204;
-    --muted-foreground: 122 110 100;
-    --accent: 181 73 42;
-    --surface: 243 234 225;
-    color-scheme: light;
-  }
-
-  .radar {
-    --background: 5 8 7;
-    --foreground: 216 232 220;
-    --border: 22 40 28;
-    --muted-foreground: 127 160 138;
-    --accent: 74 222 128;
-    --surface: 10 16 12;
-    color-scheme: dark;
   }
 
   * {
@@ -167,5 +137,30 @@
     .link-draw {
       transition: none;
     }
+  }
+}
+
+@layer components {
+  /* rehype-pretty-code wraps each fence in <figure data-rehype-pretty-code-figure>,
+     with a generated <pre><code> inside carrying per-token --shiki-dark/--shiki-light
+     vars (keepBackground: false, so our own surface color shows through). */
+  [data-rehype-pretty-code-figure] pre {
+    @apply my-6 overflow-x-auto rounded-lg border border-border bg-surface p-4 text-sm leading-relaxed;
+  }
+
+  [data-rehype-pretty-code-figure] code {
+    @apply font-mono;
+  }
+
+  [data-rehype-pretty-code-figure] span {
+    color: var(--shiki-light);
+  }
+
+  .dark [data-rehype-pretty-code-figure] span {
+    color: var(--shiki-dark);
+  }
+
+  .prose :not(pre) > code {
+    @apply rounded bg-surface px-1.5 py-0.5 text-[0.875em] font-mono;
   }
 }

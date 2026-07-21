@@ -1,7 +1,7 @@
 export interface NavItem {
   id: string;
   label: string;
-  href: `#${string}`;
+  href: string;
 }
 
 export interface BuildingProject {
@@ -13,6 +13,26 @@ export interface BuildingProject {
   github?: string;
   devLog?: string;
   demo?: string;
+}
+
+export interface DevlogProject {
+  slug: string;
+  title: string;
+  description: string;
+  draft?: boolean;
+}
+
+export interface DevlogPostMeta {
+  slug: string;
+  projectSlug: string;
+  title: string;
+  date: string;
+  summary: string;
+  draft?: boolean;
+}
+
+export interface DevlogPost extends DevlogPostMeta {
+  content: string;
 }
 
 export interface MentorshipArea {
