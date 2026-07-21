@@ -54,10 +54,10 @@ export async function POST(request: Request) {
     );
   }
 
-  const resend = new Resend(process.env.RESEND_API_KEY);
-
   try {
-    await resend.emails.send({
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    const { error } = await resend.emails.send({
       from: FROM_ADDRESS,
       to: TO_ADDRESS,
       replyTo: fields.email,
@@ -72,7 +72,12 @@ export async function POST(request: Request) {
           ]
         : undefined,
     });
-  } catch {
+
+    if (error) {
+      throw error;
+    }
+  } catch (error) {
+    console.error("Mentorship request email failed to send:", error);
     return NextResponse.json(
       {
         ok: false,
