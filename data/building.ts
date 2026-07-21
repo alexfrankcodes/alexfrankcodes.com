@@ -1,0 +1,11 @@
+import { BuildingProject } from "@/lib/types";
+
+export const buildingProjects: BuildingProject[] = [
+  {
+    id: "cervane",
+    title: "Cervane",
+    description:
+      "A multi-tenant case-management platform with SLA tracking, escalation queues, and a business-calendar-aware SLA engine.",
+    technologies: ["TypeScript", "Next.js", "PostgreSQL"],
+  },
+];

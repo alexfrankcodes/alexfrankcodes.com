@@ -4,20 +4,15 @@ export interface NavItem {
   href: `#${string}`;
 }
 
-export type ProjectSketchKind = "walk" | "sort" | "ship" | "chat";
-
-export interface Project {
+export interface BuildingProject {
   id: string;
   title: string;
   description: string;
   technologies: string[];
-  referenceLink?: {
-    label: string;
-    href: string;
-  };
-  link?: string;
+  /* absent link = not live yet; rendered as "Coming soon" */
   github?: string;
-  sketch?: ProjectSketchKind;
+  devLog?: string;
+  demo?: string;
 }
 
 export interface MentorshipArea {
