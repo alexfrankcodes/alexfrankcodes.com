@@ -2,14 +2,14 @@ import { NavItem } from "@/lib/types";
 
 export const SECTION_IDS = {
   about: "about",
-  projects: "projects",
+  building: "building",
   mentorship: "mentorship",
   contact: "contact",
 } as const;
 
 export const NAV_ITEMS: NavItem[] = [
   { id: "about", label: "About", href: `#${SECTION_IDS.about}` },
-  { id: "projects", label: "Projects", href: `#${SECTION_IDS.projects}` },
+  { id: "building", label: "Building", href: `#${SECTION_IDS.building}` },
   { id: "mentorship", label: "Mentorship", href: `#${SECTION_IDS.mentorship}` },
   { id: "contact", label: "Contact", href: `#${SECTION_IDS.contact}` },
 ];
