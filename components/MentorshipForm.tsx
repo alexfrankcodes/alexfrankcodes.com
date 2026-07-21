@@ -11,20 +11,42 @@ const inputClasses =
 const labelClasses =
   "block font-mono text-xs uppercase tracking-wide text-muted mb-1.5";
 
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const MentorshipForm = () => {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [nameError, setNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [checkboxError, setCheckboxError] = useState("");
   const [fileError, setFileError] = useState("");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setNameError("");
+    setEmailError("");
     setCheckboxError("");
     setFileError("");
     setErrorMessage("");
 
     const form = event.currentTarget;
     const formData = new FormData(form);
+
+    const name = String(formData.get("name") ?? "").trim();
+    if (!name) {
+      setNameError("Name is required.");
+      return;
+    }
+
+    const email = String(formData.get("email") ?? "").trim();
+    if (!email) {
+      setEmailError("Email is required.");
+      return;
+    }
+    if (!EMAIL_PATTERN.test(email)) {
+      setEmailError("Enter a valid email address.");
+      return;
+    }
 
     const resumeReview = formData.get("resumeReview") === "on";
     const coaching = formData.get("coaching") === "on";
@@ -97,14 +119,38 @@ const MentorshipForm = () => {
         <label htmlFor="name" className={labelClasses}>
           Name
         </label>
-        <input id="name" name="name" type="text" required className={inputClasses} />
+        <input
+          id="name"
+          name="name"
+          type="text"
+          required
+          aria-describedby={nameError ? "name-error" : undefined}
+          className={inputClasses}
+        />
+        {nameError && (
+          <p className="mt-1.5 text-sm text-red-400" id="name-error">
+            {nameError}
+          </p>
+        )}
       </div>
 
       <div>
         <label htmlFor="email" className={labelClasses}>
           Email
         </label>
-        <input id="email" name="email" type="email" required className={inputClasses} />
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+          aria-describedby={emailError ? "email-error" : undefined}
+          className={inputClasses}
+        />
+        {emailError && (
+          <p className="mt-1.5 text-sm text-red-400" id="email-error">
+            {emailError}
+          </p>
+        )}
       </div>
 
       <fieldset aria-describedby={checkboxError ? "checkbox-error" : undefined}>
