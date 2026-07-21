@@ -72,6 +72,9 @@ describe("POST /api/mentorship-request", () => {
     const call = sendMock.mock.calls[0][0];
     expect(call.attachments).toHaveLength(1);
     expect(call.attachments[0].filename).toBe("resume.pdf");
+    expect(Buffer.from(call.attachments[0].content).toString()).toBe(
+      "%PDF-1.4 fake content"
+    );
   });
 
   it("returns 400 and does not send when required fields are missing", async () => {
@@ -128,6 +131,18 @@ describe("POST /api/mentorship-request", () => {
 
   it("returns 502 when Resend fails", async () => {
     sendMock.mockRejectedValueOnce(new Error("network down"));
+    const response = await POST(buildRequest(validFields));
+    const body = await response.json();
+
+    expect(response.status).toBe(502);
+    expect(body.ok).toBe(false);
+  });
+
+  it("returns 502 when Resend resolves with an error payload", async () => {
+    sendMock.mockResolvedValueOnce({
+      data: null,
+      error: { name: "validation_error", message: "Invalid API key" },
+    });
     const response = await POST(buildRequest(validFields));
     const body = await response.json();
 
