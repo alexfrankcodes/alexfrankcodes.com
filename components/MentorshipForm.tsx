@@ -11,7 +11,48 @@ const inputClasses =
 const labelClasses =
   "block font-mono text-xs uppercase tracking-wide text-muted mb-1.5";
 
+const checkboxLabelClasses =
+  "flex items-center gap-2.5 text-sm text-foreground cursor-pointer";
+
+const fileInputClasses =
+  "w-full text-sm text-muted file:mr-3 file:cursor-pointer file:rounded-md file:border file:border-border file:bg-surface file:px-3 file:py-1.5 file:font-mono file:text-xs file:uppercase file:tracking-wide file:text-foreground file:transition-colors file:duration-150 hover:file:border-accent hover:file:text-accent";
+
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+type CheckboxOption = {
+  name: "resumeReview" | "coaching" | "advice";
+  label: string;
+};
+
+const CHECKBOX_OPTIONS: CheckboxOption[] = [
+  { name: "resumeReview", label: "Resume review" },
+  { name: "coaching", label: "One-on-one coaching" },
+  { name: "advice", label: "Career advice" },
+];
+
+const Checkbox = ({ name, label }: CheckboxOption) => (
+  <label className={checkboxLabelClasses}>
+    <span className="relative flex h-4 w-4 shrink-0 items-center justify-center">
+      <input
+        type="checkbox"
+        name={name}
+        className="peer absolute inset-0 h-4 w-4 cursor-pointer appearance-none"
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none h-4 w-4 rounded-[3px] border border-border bg-surface transition-colors duration-150 peer-checked:border-accent peer-checked:bg-accent peer-focus-visible:ring-2 peer-focus-visible:ring-accent peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-background"
+      />
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 16 16"
+        className="pointer-events-none absolute h-2.5 w-2.5 fill-none stroke-background stroke-[2.5] opacity-0 transition-opacity duration-150 peer-checked:opacity-100"
+      >
+        <path d="M3 8.5L6.5 12L13 4.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </span>
+    {label}
+  </label>
+);
 
 const MentorshipForm = () => {
   const [status, setStatus] = useState<Status>("idle");
@@ -155,19 +196,10 @@ const MentorshipForm = () => {
 
       <fieldset aria-describedby={checkboxError ? "checkbox-error" : undefined}>
         <legend className={labelClasses}>I&apos;m interested in</legend>
-        <div className="space-y-2">
-          <label className="flex items-center gap-2 text-sm text-foreground">
-            <input type="checkbox" name="resumeReview" className="accent-accent" />
-            Resume review
-          </label>
-          <label className="flex items-center gap-2 text-sm text-foreground">
-            <input type="checkbox" name="coaching" className="accent-accent" />
-            One-on-one coaching
-          </label>
-          <label className="flex items-center gap-2 text-sm text-foreground">
-            <input type="checkbox" name="advice" className="accent-accent" />
-            Career advice
-          </label>
+        <div className="space-y-2.5">
+          {CHECKBOX_OPTIONS.map((option) => (
+            <Checkbox key={option.name} {...option} />
+          ))}
         </div>
         {checkboxError && (
           <p className="mt-1.5 text-sm text-red-400" id="checkbox-error">
@@ -200,7 +232,7 @@ const MentorshipForm = () => {
           type="file"
           accept=".pdf,.doc,.docx"
           aria-describedby={fileError ? "file-error" : undefined}
-          className="w-full text-sm text-muted file:mr-3 file:rounded-md file:border file:border-border file:bg-surface file:px-3 file:py-1.5 file:text-sm file:text-foreground"
+          className={fileInputClasses}
         />
         {fileError && (
           <p className="mt-1.5 text-sm text-red-400" id="file-error">
