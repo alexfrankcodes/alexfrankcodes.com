@@ -58,7 +58,7 @@ const MentorshipForm = () => {
 
     const resume = formData.get("resume");
     if (resume instanceof File && resume.size > MAX_RESUME_SIZE_BYTES) {
-      setFileError("Resume must be under 5MB.");
+      setFileError("Resume must be under 4MB.");
       return;
     }
 
@@ -192,7 +192,7 @@ const MentorshipForm = () => {
 
       <div>
         <label htmlFor="resume" className={labelClasses}>
-          Resume (optional, PDF/DOC/DOCX, max 5MB)
+          Resume (optional, PDF/DOC/DOCX, max 4MB)
         </label>
         <input
           id="resume"
