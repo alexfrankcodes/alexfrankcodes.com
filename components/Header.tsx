@@ -15,12 +15,12 @@ const Header = () => (
         <ul className="flex gap-5 font-mono text-xs text-muted">
           {NAV_ITEMS.map((item) => (
             <li key={item.id}>
-              <a
+              <Link
                 href={item.href}
                 className="hover:text-foreground transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
               >
                 {item.label.toLowerCase()}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

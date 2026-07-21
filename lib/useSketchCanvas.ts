@@ -8,14 +8,21 @@ export interface SketchColors {
   accent: string;
 }
 
+export interface SketchMouse {
+  x: number;
+  y: number;
+  active: boolean;
+}
+
 export interface SketchDef<S> {
-  init: (w: number, h: number) => S;
+  init: (w: number, h: number, canvas: HTMLCanvasElement) => S;
   step: (
     ctx: CanvasRenderingContext2D,
     state: S,
     w: number,
     h: number,
-    colors: SketchColors
+    colors: SketchColors,
+    mouse: SketchMouse
   ) => void;
   staticSteps?: number;
 }
@@ -39,8 +46,10 @@ export function useSketchCanvas<S>(sketch: SketchDef<S>) {
     let width = 0;
     let height = 0;
     let visible = false;
+    let disposed = false;
     let state: S;
     const colors: SketchColors = { bg: "", fg: "", accent: "" };
+    const mouse: SketchMouse = { x: 0, y: 0, active: false };
 
     const rgb = (token: string) =>
       getComputedStyle(document.documentElement)
@@ -55,10 +64,10 @@ export function useSketchCanvas<S>(sketch: SketchDef<S>) {
       colors.accent = rgb("--accent");
       ctx.fillStyle = `rgb(${colors.bg})`;
       ctx.fillRect(0, 0, width, height);
-      state = sketch.init(width, height);
+      state = sketch.init(width, height, canvas);
       if (reduced) {
         for (let i = 0; i < (sketch.staticSteps ?? 200); i++) {
-          sketch.step(ctx, state, width, height, colors);
+          sketch.step(ctx, state, width, height, colors, mouse);
         }
       }
     };
@@ -75,7 +84,7 @@ export function useSketchCanvas<S>(sketch: SketchDef<S>) {
     };
 
     const frame = () => {
-      sketch.step(ctx, state, width, height, colors);
+      sketch.step(ctx, state, width, height, colors, mouse);
       raf = requestAnimationFrame(frame);
     };
     const start = () => {
@@ -118,12 +127,38 @@ export function useSketchCanvas<S>(sketch: SketchDef<S>) {
     const onVisibility = () => (document.hidden ? stop() : start());
     document.addEventListener("visibilitychange", onVisibility);
 
+    // pointer position in canvas coordinates; the canvas itself is usually
+    // pointer-events-none, so listen at the window level
+    const onPointerMove = (e: PointerEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+      mouse.active =
+        mouse.x >= 0 && mouse.y >= 0 && mouse.x <= width && mouse.y <= height;
+    };
+    const onPointerOut = () => (mouse.active = false);
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    window.addEventListener("blur", onPointerOut);
+    document.documentElement.addEventListener("pointerleave", onPointerOut);
+
+    // glyph-mask sketches measure DOM text; rebuild once webfonts settle
+    document.fonts?.ready.then(() => {
+      if (disposed) return;
+      stop();
+      reset();
+      start();
+    });
+
     return () => {
+      disposed = true;
       stop();
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
       themeObserver.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);
+      window.removeEventListener("pointermove", onPointerMove);
+      window.removeEventListener("blur", onPointerOut);
+      document.documentElement.removeEventListener("pointerleave", onPointerOut);
     };
   }, [sketch]);
 

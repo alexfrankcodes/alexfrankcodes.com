@@ -4,5 +4,9 @@ export const skills: string[] = [
   "TypeScript",
   "Tailwind",
   "Node.js",
-  "GraphQL",
+  "Postgres",
+  "Kubernetes",
+  "AWS",
+  "Docker",
+  "Linux",
 ];

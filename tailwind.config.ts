@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 
 const config: Config = {
   darkMode: ["class"],
@@ -24,9 +25,34 @@ const config: Config = {
       maxWidth: {
         column: "42rem",
       },
+      typography: {
+        // Wired to the same CSS variables as the rest of the site so prose
+        // recolors automatically when .dark/.light toggles — no prose-invert.
+        DEFAULT: {
+          css: {
+            "--tw-prose-body": "rgb(var(--foreground))",
+            "--tw-prose-headings": "rgb(var(--foreground))",
+            "--tw-prose-links": "rgb(var(--accent))",
+            "--tw-prose-bold": "rgb(var(--foreground))",
+            "--tw-prose-counters": "rgb(var(--muted-foreground))",
+            "--tw-prose-bullets": "rgb(var(--muted-foreground))",
+            "--tw-prose-hr": "rgb(var(--border))",
+            "--tw-prose-quotes": "rgb(var(--foreground))",
+            "--tw-prose-quote-borders": "rgb(var(--border))",
+            "--tw-prose-code": "rgb(var(--foreground))",
+            "--tw-prose-th-borders": "rgb(var(--border))",
+            "--tw-prose-td-borders": "rgb(var(--border))",
+            maxWidth: "none",
+            a: { textDecoration: "none", fontWeight: "500" },
+            "a:hover": { textDecoration: "underline" },
+            "code::before": { content: '""' },
+            "code::after": { content: '""' },
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [typography],
 };
 
 export default config;
