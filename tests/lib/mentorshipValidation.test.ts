@@ -60,7 +60,7 @@ describe("validateMentorshipRequest", () => {
       },
     });
     expect(result.valid).toBe(false);
-    expect(result.errors.resume).toBe("Resume must be under 5MB.");
+    expect(result.errors.resume).toBe("Resume must be under 4MB.");
   });
 
   it("rejects a disallowed file type", () => {
