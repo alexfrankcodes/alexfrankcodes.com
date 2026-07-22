@@ -6,6 +6,7 @@ import { SECTION_IDS } from "@/data/navigation";
 import Section from "@/components/Section";
 import ConfettiText from "@/components/ConfettiText";
 import MentorshipForm from "@/components/MentorshipForm";
+import CardContourGlow from "@/components/CardContourGlow";
 
 const Mentorship = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,14 +31,30 @@ const Mentorship = () => {
         ))}
       </ul>
       <p className="mt-10 font-mono text-sm">
-        <button
-          type="button"
-          onClick={() => setIsOpen((open) => !open)}
-          aria-expanded={isOpen}
-          className="text-foreground hover:text-accent transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
-        >
-          {isOpen ? "Cancel" : "Request mentorship ↗"}
-        </button>
+        <span className="relative inline-block">
+          {!isOpen && (
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-3 sm:-inset-5"
+              style={{
+                maskImage:
+                  "radial-gradient(closest-side, black 55%, transparent 100%)",
+                WebkitMaskImage:
+                  "radial-gradient(closest-side, black 55%, transparent 100%)",
+              }}
+            >
+              <CardContourGlow variant="compact" />
+            </span>
+          )}
+          <button
+            type="button"
+            onClick={() => setIsOpen((open) => !open)}
+            aria-expanded={isOpen}
+            className="relative text-foreground hover:text-accent transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded"
+          >
+            {isOpen ? "Cancel" : "Request mentorship ↗"}
+          </button>
+        </span>
       </p>
       {isOpen && <MentorshipForm />}
     </Section>
