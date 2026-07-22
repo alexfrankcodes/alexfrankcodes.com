@@ -41,3 +41,4 @@ next-env.d.ts
 
 # subagent-driven-development scratch state (progress ledger, briefs, reports)
 /.superpowers/
+/docs/
