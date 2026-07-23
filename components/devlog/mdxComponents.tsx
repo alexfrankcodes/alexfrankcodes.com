@@ -1,4 +1,4 @@
-import type { MDXRemoteProps } from "next-mdx-remote/rsc";
+import type { MDXComponents } from "mdx/types";
 import { createDevlogImg } from "@/components/devlog/DevlogImg";
 import { YouTube } from "@/components/devlog/DevlogYouTube";
 
@@ -7,7 +7,7 @@ import { YouTube } from "@/components/devlog/DevlogYouTube";
 export function getDevlogMdxComponents(
   projectSlug: string,
   postSlug: string
-): MDXRemoteProps["components"] {
+): MDXComponents {
   return {
     Img: createDevlogImg(projectSlug, postSlug),
     YouTube,
