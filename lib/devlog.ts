@@ -4,8 +4,16 @@ import matter from "gray-matter";
 import { DevlogPost, DevlogPostMeta, DevlogProject } from "@/lib/types";
 
 const CONTENT_ROOT = path.join(process.cwd(), "content", "devlog");
+// Gitignored — drafts live here so they're never committed. Only surfaced
+// outside production so a local `next build` (and Vercel, which never has
+// this untracked directory in the first place) can't ship one by accident.
+const DRAFTS_ROOT = path.join(process.cwd(), "content", "devlog-drafts");
 
 const isProduction = () => process.env.NODE_ENV === "production";
+
+function contentRoots(): string[] {
+  return isProduction() ? [CONTENT_ROOT] : [CONTENT_ROOT, DRAFTS_ROOT];
+}
 
 function readDirNames(dir: string): string[] {
   if (!fs.existsSync(dir)) return [];
@@ -19,11 +27,24 @@ function isPublished(meta: { draft?: boolean }): boolean {
   return !meta.draft || !isProduction();
 }
 
+// A project/post can only live under one root at a time (drafts get moved,
+// not duplicated), so first root that has the slug wins.
+function findRootFor(...segments: string[]): string | null {
+  return (
+    contentRoots().find((root) => fs.existsSync(path.join(root, ...segments))) ??
+    null
+  );
+}
+
 export function getDevlogProjects(): DevlogProject[] {
-  return readDirNames(CONTENT_ROOT)
+  const slugs = Array.from(
+    new Set(contentRoots().flatMap((root) => readDirNames(root)))
+  );
+  return slugs
     .map((slug) => {
-      const metaPath = path.join(CONTENT_ROOT, slug, "_project.mdx");
-      if (!fs.existsSync(metaPath)) return null;
+      const root = findRootFor(slug, "_project.mdx");
+      if (!root) return null;
+      const metaPath = path.join(root, slug, "_project.mdx");
       const { data } = matter(fs.readFileSync(metaPath, "utf8"));
       const project: DevlogProject = {
         slug,
@@ -55,8 +76,9 @@ function readPostMeta(
   projectSlug: string,
   postSlug: string
 ): DevlogPostMeta | null {
-  const postPath = path.join(CONTENT_ROOT, projectSlug, postSlug, "index.mdx");
-  if (!fs.existsSync(postPath)) return null;
+  const root = findRootFor(projectSlug, postSlug, "index.mdx");
+  if (!root) return null;
+  const postPath = path.join(root, projectSlug, postSlug, "index.mdx");
   const { data } = matter(fs.readFileSync(postPath, "utf8"));
   const meta: DevlogPostMeta = {
     slug: postSlug,
@@ -75,8 +97,14 @@ function byDateDesc(a: DevlogPostMeta, b: DevlogPostMeta): number {
 }
 
 export function getPostsForProject(projectSlug: string): DevlogPostMeta[] {
-  const projectDir = path.join(CONTENT_ROOT, projectSlug);
-  return readDirNames(projectDir)
+  const postSlugs = Array.from(
+    new Set(
+      contentRoots().flatMap((root) =>
+        readDirNames(path.join(root, projectSlug))
+      )
+    )
+  );
+  return postSlugs
     .map((postSlug) => readPostMeta(projectSlug, postSlug))
     .filter((post): post is DevlogPostMeta => post !== null)
     .sort(byDateDesc);
@@ -94,7 +122,8 @@ export function getDevlogPost(
 ): DevlogPost | null {
   const meta = readPostMeta(projectSlug, postSlug);
   if (!meta) return null;
-  const postPath = path.join(CONTENT_ROOT, projectSlug, postSlug, "index.mdx");
+  const root = findRootFor(projectSlug, postSlug, "index.mdx");
+  const postPath = path.join(root as string, projectSlug, postSlug, "index.mdx");
   const { content } = matter(fs.readFileSync(postPath, "utf8"));
   return { ...meta, content };
 }
