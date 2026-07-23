@@ -34,6 +34,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: "Alex Frank | Software Engineer",
     description: "The personal website of Software Engineer Alexander Frank.",
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Alex Frank | Software Engineer",
     description: "The personal website of Software Engineer Alexander Frank.",
   },

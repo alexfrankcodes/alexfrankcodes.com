@@ -8,6 +8,9 @@ import path from "node:path";
 import sharp from "sharp";
 
 const CONTENT_ROOT = path.join(process.cwd(), "content", "devlog");
+// Gitignored drafts root (see lib/devlog.ts) — walked too so draft images
+// preview locally. Never present in a Vercel build, since it's never committed.
+const DRAFTS_ROOT = path.join(process.cwd(), "content", "devlog-drafts");
 const PUBLIC_ROOT = path.join(process.cwd(), "public", "devlog");
 const IMAGE_EXTENSIONS = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif", ".svg"]);
 
@@ -43,6 +46,7 @@ async function main() {
 
   const manifest = {};
   await walk(CONTENT_ROOT, "", manifest);
+  await walk(DRAFTS_ROOT, "", manifest);
 
   writeFileSync(
     path.join(PUBLIC_ROOT, "manifest.json"),

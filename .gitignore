@@ -16,6 +16,9 @@
 # generated from content/devlog/ by scripts/copy-devlog-media.mjs — don't duplicate source images in git
 /public/devlog/
 
+# unpublished devlog posts/projects — never committed; move into content/devlog/ to publish
+/content/devlog-drafts/
+
 # production
 /build
 
@@ -41,3 +44,4 @@ next-env.d.ts
 
 # subagent-driven-development scratch state (progress ledger, briefs, reports)
 /.superpowers/
+/docs/
