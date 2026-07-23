@@ -12,7 +12,7 @@ export const NAV_ITEMS: NavItem[] = [
   { id: "about", label: "About", href: `/#${SECTION_IDS.about}` },
   { id: "working-with", label: "Working with", href: `/#${SECTION_IDS.workingWith}` },
   { id: "building", label: "Building", href: `/#${SECTION_IDS.building}` },
-  { id: "devlog", label: "Devlog", href: "/devlog" },
+  { id: "devlog", label: "Devlog", href: "/devlog", hidden: true },
   { id: "mentorship", label: "Mentorship", href: `/#${SECTION_IDS.mentorship}` },
   { id: "contact", label: "Contact", href: `/#${SECTION_IDS.contact}` },
 ];
