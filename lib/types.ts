@@ -2,6 +2,8 @@ export interface NavItem {
   id: string;
   label: string;
   href: string;
+  /* set true to keep the item in data but hide it from the rendered nav */
+  hidden?: boolean;
 }
 
 export interface BuildingProject {

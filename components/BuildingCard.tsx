@@ -5,9 +5,14 @@ import Link from "next/link";
 import { BuildingProject } from "@/lib/types";
 import CardContourGlow from "@/components/CardContourGlow";
 
+/* devLog hidden for now: keep the slot definition so re-enabling is a one-line flip */
+const DEVLOG_LINK_VISIBLE = false;
+
 const LINK_SLOTS = [
   { key: "github", label: "GitHub", external: true },
-  { key: "devLog", label: "Dev Log", external: false },
+  ...(DEVLOG_LINK_VISIBLE
+    ? [{ key: "devLog", label: "Dev Log", external: false }] as const
+    : []),
   { key: "demo", label: "Demo", external: true },
 ] as const;
 

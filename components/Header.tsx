@@ -13,7 +13,7 @@ const Header = () => (
     <div className="flex items-center gap-4 sm:gap-6">
       <nav aria-label="Sections" className="hidden sm:block">
         <ul className="flex gap-5 font-mono text-xs text-muted">
-          {NAV_ITEMS.map((item) => (
+          {NAV_ITEMS.filter((item) => !item.hidden).map((item) => (
             <li key={item.id}>
               <Link
                 href={item.href}

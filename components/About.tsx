@@ -13,8 +13,7 @@ const About = () => (
         </p>
         <p>
           I care about building software that{"'"}s fast, reliable,
-          accessible, and pleasant to use. These days most of my work is in
-          React, Next.js, and Postgres.
+          accessible, and pleasant to use.
         </p>
         <p>
           When I{"'"}m not writing code, you can find me hiking,
