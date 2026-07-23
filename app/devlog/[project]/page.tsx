@@ -10,15 +10,16 @@ import {
 import { DevlogBreadcrumb } from "@/components/devlog/DevlogBreadcrumb";
 
 interface Props {
-  params: { project: string };
+  params: Promise<{ project: string }>;
 }
 
 export function generateStaticParams() {
   return getDevlogProjects().map((project) => ({ project: project.slug }));
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const project = getDevlogProject(params.project);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { project: projectSlug } = await params;
+  const project = getDevlogProject(projectSlug);
   if (!project) return {};
 
   const title = `${project.title} Devlog`;
@@ -35,8 +36,9 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function DevlogProjectPage({ params }: Props) {
-  const project = getDevlogProject(params.project);
+export default async function DevlogProjectPage({ params }: Props) {
+  const { project: projectSlug } = await params;
+  const project = getDevlogProject(projectSlug);
   if (!project) notFound();
   const posts = getPostsForProject(project.slug);
 
