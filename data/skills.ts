@@ -2,6 +2,8 @@ export const skills: string[] = [
   "React",
   "Next.js",
   "TypeScript",
+  "Java",
+  "Python",
   "Tailwind",
   "Node.js",
   "Postgres",
@@ -9,4 +11,5 @@ export const skills: string[] = [
   "AWS",
   "Docker",
   "Linux",
+  "Git"
 ];

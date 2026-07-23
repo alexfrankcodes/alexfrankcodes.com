@@ -10,6 +10,8 @@ import { DevlogBreadcrumb } from "@/components/devlog/DevlogBreadcrumb";
 import { MdxContent } from "@/components/devlog/MdxContent";
 import { getDevlogMdxComponents } from "@/components/devlog/mdxComponents";
 
+const SITE_URL = "https://alexfrankcodes.com";
+
 interface Props {
   params: { project: string; slug: string };
 }
@@ -46,8 +48,28 @@ export default function DevlogPostPage({ params }: Props) {
   const project = getDevlogProject(params.project);
   if (!project) notFound();
 
+  const url = `${SITE_URL}/devlog/${params.project}/${params.slug}`;
+  const blogPostingJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.summary,
+    datePublished: post.date,
+    url,
+    mainEntityOfPage: url,
+    author: {
+      "@type": "Person",
+      name: "Alex Frank",
+      url: SITE_URL,
+    },
+  };
+
   return (
     <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
+      />
       <DevlogBreadcrumb
         crumbs={[
           { label: "Devlog", href: "/devlog" },
