@@ -13,7 +13,7 @@ import { getDevlogMdxComponents } from "@/components/devlog/mdxComponents";
 const SITE_URL = "https://alexfrankcodes.com";
 
 interface Props {
-  params: { project: string; slug: string };
+  params: Promise<{ project: string; slug: string }>;
 }
 
 export function generateStaticParams() {
@@ -23,11 +23,12 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const post = getDevlogPost(params.project, params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { project: projectSlug, slug } = await params;
+  const post = getDevlogPost(projectSlug, slug);
   if (!post) return {};
 
-  const url = `/devlog/${params.project}/${params.slug}`;
+  const url = `/devlog/${projectSlug}/${slug}`;
   return {
     title: post.title,
     description: post.summary,
@@ -42,13 +43,14 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
-export default function DevlogPostPage({ params }: Props) {
-  const post = getDevlogPost(params.project, params.slug);
+export default async function DevlogPostPage({ params }: Props) {
+  const { project: projectSlug, slug } = await params;
+  const post = getDevlogPost(projectSlug, slug);
   if (!post) notFound();
-  const project = getDevlogProject(params.project);
+  const project = getDevlogProject(projectSlug);
   if (!project) notFound();
 
-  const url = `${SITE_URL}/devlog/${params.project}/${params.slug}`;
+  const url = `${SITE_URL}/devlog/${projectSlug}/${slug}`;
   const blogPostingJsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
