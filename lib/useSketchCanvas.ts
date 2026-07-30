@@ -110,7 +110,11 @@ export function useSketchCanvas<S>(sketch: SketchDef<S>) {
 
     const intersectionObserver = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting;
-      visible ? start() : stop();
+      if (visible) {
+        start();
+      } else {
+        stop();
+      }
     });
     intersectionObserver.observe(canvas);
 
