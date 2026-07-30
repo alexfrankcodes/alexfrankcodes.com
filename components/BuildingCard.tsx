@@ -57,7 +57,8 @@ const BuildingCard = ({ project }: { project: BuildingProject }) => {
         </p>
         <ul className="mt-6 flex flex-wrap items-start gap-x-6 gap-y-2 font-mono text-sm">
           {LINK_SLOTS.map((slot) => ({ ...slot, href: project[slot.key] }))
-            .sort((a, b) => Number(Boolean(a.href)) - Number(Boolean(b.href)))
+            /* live links lead; "coming soon" placeholders trail */
+            .sort((a, b) => Number(Boolean(b.href)) - Number(Boolean(a.href)))
             .map(({ key, label, external, href }) => (
               <li key={key}>
                 {href ? (
