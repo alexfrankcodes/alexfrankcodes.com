@@ -46,9 +46,26 @@ const BuildingCard = ({ project }: { project: BuildingProject }) => {
         {active && <CardContourGlow />}
       </div>
       <div className="relative rounded-lg border border-border bg-surface p-6 sm:p-8 transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:z-10 group-hover:scale-[1.02]">
-        <h3 className="font-display text-2xl font-semibold tracking-tight text-foreground">
-          {project.title}
-        </h3>
+        <div className="flex items-center gap-4">
+          {project.icon && (
+            /* Decorative — the title beside it already names the project.
+               Icon art supplies its own fill and corner radius, so the only
+               styling it needs is a hairline ring: a pale app icon on the
+               light theme's surface would otherwise lose its silhouette.
+               The radius mirrors the artwork's own (rx 232 of 1024). */
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={project.icon}
+              alt=""
+              width={48}
+              height={48}
+              className="h-12 w-12 shrink-0 rounded-[22.656%] ring-1 ring-border"
+            />
+          )}
+          <h3 className="font-display text-2xl font-semibold tracking-tight text-foreground">
+            {project.title}
+          </h3>
+        </div>
         <p className="mt-3 text-muted leading-relaxed">
           {project.description}
         </p>
