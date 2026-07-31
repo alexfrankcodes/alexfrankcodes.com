@@ -11,6 +11,8 @@ export interface BuildingProject {
   title: string;
   description: string;
   technologies: string[];
+  /* public/ path to the project's app icon; absent = title stands alone */
+  icon?: string;
   /* absent link = not live yet; rendered as "Coming soon" */
   github?: string;
   devLog?: string;
